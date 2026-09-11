@@ -1,28 +1,25 @@
-SAPFIR — FINAL OPTIMIZED PRODUCTION BUILD
+SAPFIR — FINAL POLISHED BUILD
 
-Для GitHub Pages:
-1. В корне репозитория замените index.html.
-2. Загрузите ЦЕЛИКОМ папку assets/.
-3. Загрузите ЦЕЛИКОМ папку images/. В ней теперь находятся JPG + WebP + AVIF и мобильные 900px-версии галереи.
-4. Загрузите favicon.svg, robots.txt, sitemap.xml и .nojekyll в корень.
-5. Старые fingerprint-файлы в assets/ можно удалить после загрузки новых:
-   - site.6d51152e0d.css
-   - site.869fc22bd2.js
-6. .htaccess нужен только на Apache-хостинге. GitHub Pages его не использует; наличие файла не влияет на работу сайта.
-7. После коммита дождитесь завершения GitHub Pages deployment, затем проверьте сайт в режиме инкогнито.
+GitHub Pages deployment:
+1. Replace index.html in the repository root.
+2. Replace/upload the complete assets/ folder.
+3. Replace/upload the complete images/ folder.
+4. Upload favicon.svg, robots.txt, sitemap.xml and .nojekyll to the root.
+5. .htaccess is not used by GitHub Pages; do not upload it there unless you simply want to keep it as a future Apache-hosting reference.
+6. Commit the changes and wait for GitHub Pages deployment to finish.
+7. Test in an incognito/private tab.
 
-ВАЖНО:
-- Не переименовывайте файлы AVIF/WebP и fingerprint CSS/JS: пути уже прописаны в index.html.
-- Не удаляйте JPG из images/: они оставлены как fallback и используются для Open Graph / соцсетей.
-- На современных браузерах галерея/портреты/интро выбирают AVIF, затем WebP, затем JPG.
-- Для hero используется main.webp, чтобы сохранить существующую SVG-маску без изменения дизайна.
+IMPORTANT
+- Do not rename fingerprint CSS/JS files or *.v2.avif files; index.html already points to them.
+- Old unversioned *.avif files may be deleted from the repository after this build is deployed; they are no longer referenced.
+- Keep JPG files: they are fallback files and gallery.jpg is used for social/SEO previews.
 
-Проверить после публикации:
-- интро desktop/mobile;
-- главный экран;
-- RU / KZ / UG;
-- карточки участниц;
-- галерею и свайпы;
-- видео;
-- WhatsApp;
-- превью ссылки в мессенджерах.
+Post-deploy checks:
+- desktop + mobile intro
+- hero
+- RU / KZ / UG
+- member dialogs
+- gallery + swipe + lightbox
+- YouTube click-to-load
+- WhatsApp links and number copying
+- link preview in Telegram/WhatsApp

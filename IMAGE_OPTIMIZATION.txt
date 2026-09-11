@@ -1,28 +1,20 @@
-SAPFIR IMAGE OPTIMIZATION
+SAPFIR — IMAGE OPTIMIZATION (VERIFIED)
 
-JPEG originals total: 4.83 MiB
-WebP total: 3.39 MiB (29.8% smaller)
-AVIF total: 2.44 MiB (49.5% smaller)
+The site now uses genuine AVIF + WebP + JPG fallback through <picture> where appropriate.
+The AVIF files are versioned as *.v2.avif to avoid stale browser/CDN cache from an earlier invalid AVIF build.
 
-Per file (KB):
-diyara                 JPG   332.8 | WebP   308.6 | AVIF   123.6
-gallery                JPG   803.7 | WebP   612.2 | AVIF   441.7
-gallery1               JPG   438.6 | WebP   256.6 | AVIF   232.6
-gallery2               JPG   786.1 | WebP   590.8 | AVIF   430.4
-gallery3               JPG   172.7 | WebP   114.9 | AVIF   102.6
-gallery4               JPG   652.0 | WebP   489.4 | AVIF   329.5
-intro-desktop-v3       JPG   365.3 | WebP   201.5 | AVIF   157.2
-intro-mobile-v3        JPG   346.8 | WebP   187.7 | AVIF   146.7
-main                   JPG   480.6 | WebP   318.9 | AVIF   261.0
-mira                   JPG   127.0 | WebP    71.5 | AVIF    66.8
-nigara                 JPG   261.5 | WebP   199.4 | AVIF   109.6
-niyara                 JPG   176.5 | WebP   119.8 | AVIF    93.3
+Full-size responsive picture set (11 images, excluding hero main):
+- JPEG total: 4.36 MiB
+- WebP total: 3.08 MiB
+- AVIF total: 1.85 MiB
+- AVIF reduction vs JPEG: ~57.6%
 
-Implementation:
-- AVIF is preferred where <picture> is available.
-- WebP is the second source.
-- JPG originals remain as browser/social fallback.
-- Gallery has 900px responsive AVIF/WebP variants for mobile.
-- Hero SVG uses main.webp to preserve its existing SVG mask without redesign.
-- Open Graph/Twitter/Schema.org continue to use gallery.jpg for crawler compatibility.
-- Lightbox and member modal now use currentSrc, so they open the optimized format selected by the browser.
+Mobile gallery (5 images at 900px):
+- WebP total: 0.94 MiB
+- AVIF total: 0.51 MiB
+
+Hero:
+- main.jpg: ~481 KB fallback/original
+- main.webp: ~319 KB used by the existing SVG-masked hero
+
+Modern browsers select AVIF first, then WebP, then JPG. Only the selected source is downloaded; the browser does not download all formats.
