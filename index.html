@@ -232,7 +232,7 @@ body{background:#19191d;color:#f4f0eb}.sapfir-symbol{width:23px;height:27px;flex
 .intro .intro-content{position:relative;z-index:2;text-shadow:0 2px 18px #0007}
 .intro .intro-line{color:#f4f0eb}
 .intro #skip-intro{z-index:3;background:#19191d70;color:#f4f0eb;border-color:#f4f0eb40}
-</style><script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!localStorage.getItem('sapfir-intro-seen-v1'))document.documentElement.classList.add('intro-on')}catch(e){}</script><meta name="referrer" content="strict-origin-when-cross-origin">
+</style><script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-on')}catch(e){}</script><meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://sapfirshow.kz/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -257,7 +257,7 @@ body{background:#19191d;color:#f4f0eb}.sapfir-symbol{width:23px;height:27px;flex
 (function(){
 const root=document.documentElement, intro=document.getElementById('intro'),skip=document.getElementById('skip-intro');
 if(!root.classList.contains('intro-on'))return;
-try{localStorage.setItem('sapfir-intro-seen-v1','1')}catch(e){}
+
 const sections=[...document.querySelectorAll('#header,main,.footer')];sections.forEach(el=>el.inert=true);
 let finished=false;function endIntro(){if(finished)return;finished=true;const focusInside=intro.contains(document.activeElement);root.classList.remove('intro-on');sections.forEach(el=>el.inert=false);if(focusInside)document.querySelector('.brand').focus({preventScroll:true})}
 skip.addEventListener('click',endIntro);document.addEventListener('keydown',e=>{if(e.key==='Escape')endIntro()});skip.focus({preventScroll:true});setTimeout(endIntro,3100);
