@@ -237,6 +237,12 @@ body{background:#19191d;color:#f4f0eb}.sapfir-symbol{width:23px;height:27px;flex
 .intro .intro-content{position:relative;z-index:2;text-shadow:0 2px 18px #0007}
 .intro .intro-line{color:#f4f0eb}
 .intro #skip-intro{z-index:3;background:#19191d70;color:#f4f0eb;border-color:#f4f0eb40}
+
+/* Copy protection: site text is not selectable; phone numbers remain copyable. */
+html,body,#site-page{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.wa-number{-webkit-user-select:text!important;user-select:text!important;-webkit-touch-callout:none!important;cursor:text}
+.copy-toast{position:fixed;left:50%;bottom:max(28px,env(safe-area-inset-bottom));transform:translate(-50%,14px);z-index:9999;background:#17151ceF;color:#fff;border:1px solid #ffffff26;border-radius:999px;padding:11px 16px;font-size:13px;line-height:1.2;box-shadow:0 12px 34px #0007;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;white-space:nowrap}
+.copy-toast.show{opacity:1;transform:translate(-50%,0)}
 </style><script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-on')}catch(e){}</script><meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://sapfirshow.kz/">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -332,7 +338,62 @@ track.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopImmediateP
   return !!target.closest('picture,.hero-image,.gallery-photo,.portrait,.member-photo,#lightbox,.video-poster,.intro-picture');
  };
  document.querySelectorAll('img').forEach(img=>img.setAttribute('draggable','false'));
- document.addEventListener('contextmenu',e=>{const t=e.target instanceof Element?e.target:null;if(isProtectedMedia(t)||(t&&t.closest('a,button')))e.preventDefault()},{capture:true});
+ document.addEventListener('contextmenu',e=>{const t=e.target instanceof Element?e.target:null;if(isProtectedMedia(t)||(t&&t.closest('a,button'))||t)e.preventDefault()},{capture:true});
  document.addEventListener('dragstart',e=>{if(isProtectedMedia(e.target))e.preventDefault()},{capture:true});
+})();
+</script><script id="copy-protection">
+(()=>{
+ const phoneSelector='.wa-number';
+ const phoneEl=node=>{
+  if(!node)return null;
+  const el=node.nodeType===Node.ELEMENT_NODE?node:node.parentElement;
+  return el&&el.closest?el.closest(phoneSelector):null;
+ };
+ const selectionIsPhoneOnly=()=>{
+  const sel=getSelection();
+  if(!sel||sel.rangeCount===0||sel.isCollapsed)return false;
+  const a=phoneEl(sel.anchorNode),f=phoneEl(sel.focusNode);
+  return !!(a&&f&&a===f);
+ };
+ document.addEventListener('selectstart',e=>{
+  const t=e.target instanceof Element?e.target:null;
+  if(!(t&&(t.closest(phoneSelector)||t.closest('[data-copy-helper]'))))e.preventDefault();
+ },true);
+ document.addEventListener('copy',e=>{
+  if(!selectionIsPhoneOnly())e.preventDefault();
+ },true);
+ document.addEventListener('cut',e=>e.preventDefault(),true);
+
+ let toast=document.querySelector('.copy-toast');
+ if(!toast){toast=document.createElement('div');toast.className='copy-toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');document.body.appendChild(toast)}
+ let toastTimer=0;
+ const showToast=text=>{toast.textContent=text;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),1500)};
+ const copyPhone=async el=>{
+  const text=el.textContent.replace(/\s+/g,' ').trim();
+  try{await navigator.clipboard.writeText(text);showToast(lang==='kk'?'Нөмір көшірілді':lang==='ug'?'Номер көчүрүлди':'Номер скопирован')}
+  catch{
+   const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.setAttribute('data-copy-helper','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+   try{document.execCommand('copy');showToast(lang==='kk'?'Нөмір көшірілді':lang==='ug'?'Номер көчүрүлди':'Номер скопирован')}catch{}ta.remove();
+  }
+ };
+ let hold=null,suppressClick=false;
+ document.addEventListener('pointerdown',e=>{
+  const el=e.target instanceof Element?e.target.closest(phoneSelector):null;
+  if(!el||e.pointerType==='mouse')return;
+  hold={el,id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now()};
+ },true);
+ document.addEventListener('pointermove',e=>{
+  if(!hold||e.pointerId!==hold.id)return;
+  if(Math.hypot(e.clientX-hold.x,e.clientY-hold.y)>12)hold=null;
+ },true);
+ document.addEventListener('pointercancel',()=>{hold=null},true);
+ document.addEventListener('pointerup',e=>{
+  if(!hold||e.pointerId!==hold.id)return;
+  const h=hold;hold=null;
+  if(performance.now()-h.time>=520){suppressClick=true;copyPhone(h.el);e.preventDefault();setTimeout(()=>suppressClick=false,500)}
+ },true);
+ document.addEventListener('click',e=>{
+  if(suppressClick&&e.target instanceof Element&&e.target.closest(phoneSelector)){e.preventDefault();e.stopImmediatePropagation();suppressClick=false}
+ },true);
 })();
 </script></body></html>
