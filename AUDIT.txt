@@ -1,0 +1,33 @@
+SAPFIR — STATIC PRODUCTION AUDIT
+Date: 2026-09-12
+
+RESULT
+- Original single index.html: 116,211 bytes
+- New index.html: 42,704 bytes (63.3% smaller)
+- CSS: 55,521 -> 44,059 bytes (20.6% smaller), moved to a cacheable fingerprint asset
+- Production JavaScript: 17,983 bytes, deferred and cacheable
+- Gzip estimate for application JS: 6,004 -> 5,555 bytes (7.5% smaller)
+- Gzip estimate for code on first uncached visit: 28,038 -> 25,121 bytes (10.4% smaller)
+- HTML gzip alone: 28,038 -> 9,057 bytes (67.7% smaller)
+
+REFACTORING
+- CSS and JS extracted from the monolithic HTML into assets/.
+- Fingerprinted CSS/JS filenames added to eliminate stale browser caches after future deploys.
+- 164 impossible/dead selector branches and 149 dead/duplicate rules removed conservatively.
+- Legacy reveal/word-by-word manifesto runtime removed because the final visual layer disabled that effect.
+- Unused progress-bar runtime removed.
+- Unused notice/modal runtime removed.
+- Page-level scroll effects consolidated under one requestAnimationFrame loop.
+- YouTube remains click-to-load; it is not created during initial page load.
+- Noto Serif request removed; the final design uses Noto Sans.
+- Existing lazy-loading/async image decoding retained and completed for the video poster.
+- Existing SEO/Open Graph/Twitter/Schema.org metadata retained.
+- Existing mobile gallery swipe, dialogs, languages, WhatsApp and requested copy/context protections retained.
+
+SERVER
+- Optional .htaccess adds DEFLATE compression, immutable 1-year caching for fingerprint CSS/JS, short image caching and basic security headers.
+- HTML remains no-cache/must-revalidate so a new index is picked up immediately.
+
+LIMITS OF THIS STATIC AUDIT
+- The production package intentionally does not contain the existing images/ directory, so JPEG/WebP byte sizes were not measured here. Image weight is likely the largest remaining performance variable.
+- This is a static/code audit, not a Lighthouse field/lab score. Core Web Vitals should be checked against the deployed site after upload.
