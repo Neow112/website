@@ -1,25 +1,31 @@
-SAPFIR — FINAL POLISHED BUILD
+SAPFIR — ОБНОВЛЕНИЕ ПО АУДИТУ, 12.09.2026
 
-GitHub Pages deployment:
-1. Replace index.html in the repository root.
-2. Replace/upload the complete assets/ folder.
-3. Replace/upload the complete images/ folder.
-4. Upload favicon.svg, robots.txt, sitemap.xml and .nojekyll to the root.
-5. .htaccess is not used by GitHub Pages; do not upload it there unless you simply want to keep it as a future Apache-hosting reference.
-6. Commit the changes and wait for GitHub Pages deployment to finish.
-7. Test in an incognito/private tab.
+1. Распакуйте ZIP. Внутри находится папка website-main.
+2. Загрузите СОДЕРЖИМОЕ этой папки в корень существующего репозитория,
+   где уже находятся index.html и CNAME. Не помещайте website-main внутрь
+   репозитория дополнительной вложенной папкой.
+3. Замените index.html, sitemap.xml и DEPLOY.txt. Загрузите новые файлы
+   из assets/, папки kk/ и ug/, а также 404.html и .nojekyll.
+   Можно загрузить содержимое архива целиком с заменой совпадающих файлов.
+4. Сохраните изменения (Commit changes). Дождитесь завершения GitHub Pages.
+5. Откройте сайт в новой приватной вкладке и проверьте:
+   - интро и «Пропустить»;
+   - кнопки первого экрана;
+   - языковые страницы /, /kk/, /ug/;
+   - меню телефона, портреты и галерею;
+   - «Скопировать номер», «Позвонить» и WhatsApp;
+   - видео после нажатия Play.
+6. Отправьте обновлённый sitemap.xml в Google Search Console и Яндекс Вебмастер.
 
-IMPORTANT
-- Do not rename fingerprint CSS/JS files or *.v2.avif files; index.html already points to them.
-- Old unversioned *.avif files may be deleted from the repository after this build is deployed; they are no longer referenced.
-- Keep JPG files: they are fallback files and gallery.jpg is used for social/SEO previews.
+Не переименовывайте файлы CSS/JS: ссылки уже настроены.
+Исходные CSS/JS и фотографии сохранены. Старые версии CSS/JS больше
+не используются обновлёнными страницами, но сохранены для совместимости.
+CNAME и файл подтверждения Яндекса сохранены без изменений.
 
-Post-deploy checks:
-- desktop + mobile intro
-- hero
-- RU / KZ / UG
-- member dialogs
-- gallery + swipe + lightbox
-- YouTube click-to-load
-- WhatsApp links and number copying
-- link preview in Telegram/WhatsApp
+Проверены код, внутренние ссылки и отдельные сценарии JS.
+Визуальный просмотр на Android/iOS/ПК после публикации всё ещё нужен:
+локальный предпросмотр оказался недоступен браузеру среды подготовки.
+Lighthouse не запускался; улучшение оценки скорости не заявляется.
+
+Файлы AUDIT.txt, FINAL_AUDIT.txt и IMAGE_OPTIMIZATION.txt относятся
+к предыдущей версии. Актуальные изменения описаны в CHANGES-2026-09-12.md.
