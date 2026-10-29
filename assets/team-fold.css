@@ -1,0 +1,19 @@
+/* SAPFIR: manual, swipe-driven folding photograph. */
+#about .team.fold-team{position:relative;display:block;width:min(100%,440px);height:auto;aspect-ratio:3/4;margin:0 auto;padding:0;overflow:hidden;border-radius:16px;isolation:isolate;touch-action:pan-y;cursor:grab;background:linear-gradient(135deg,#ece6f2,#f5edf0);box-shadow:0 14px 42px #68527720,0 0 0 1px #bca4d24d;scroll-snap-type:none}
+#about .fold-team .member{position:absolute;inset:0;display:block;margin:0;padding:0;max-width:none;width:100%;opacity:0;visibility:hidden;pointer-events:none;perspective:none;transform:none}
+#about .fold-team .member.is-current{opacity:1;visibility:visible;pointer-events:auto}
+#about .fold-team .portrait{height:100%!important;width:100%;border-radius:16px!important;transform:none!important;box-shadow:none;touch-action:pan-y;cursor:inherit}
+#about .fold-team .portrait img{width:100%;height:100%;margin:0;object-fit:cover;object-position:50% 32%;filter:none}
+#about .fold-team .member-caption{position:absolute;bottom:0;left:0;right:0;margin:0;padding:45px 20px 22px;min-height:0;pointer-events:none;color:#fff;background:linear-gradient(transparent,#1e152ac9);z-index:3}
+#about .fold-team .member-caption h3{font-size:22px;font-weight:500;letter-spacing:.04em;text-shadow:0 2px 10px #0003}
+#about .fold-team canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;display:none}
+#about .fold-team.is-folding canvas{display:block}
+#about .fold-team.is-folding .portrait{opacity:0}
+#about .fold-team.is-dragging{cursor:grabbing}
+#about .fold-team:focus-visible{outline:2px solid #9e7abb;outline-offset:6px}
+#about .fold-nav{display:flex;justify-content:center;gap:0;margin:14px auto 0;width:fit-content}
+#about .fold-nav button{position:relative;width:40px;height:40px;padding:0;background:none;color:#80648f;touch-action:manipulation}
+#about .fold-nav button:before{content:'';display:block;margin:auto;width:6px;height:6px;border-radius:8px;background:#bcacc8;transition:width .3s,background .3s,box-shadow .3s}
+#about .fold-nav button[aria-current=true]:before{width:24px;background:#9b7ab5;box-shadow:0 0 12px #b99bd26b}
+@media(max-width:680px){#about .team.fold-team{width:100%;max-width:380px}#about .fold-team .member-caption h3{font-size:20px}}
+@media(prefers-reduced-motion:reduce){#about .fold-nav button:before{transition:none}}
