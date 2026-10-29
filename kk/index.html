@@ -1,45 +1,124 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="kk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="robots" content="noindex">
-  <title>SAPFIR — технические работы</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      display:flex;align-items:center;justify-content:center;
-      padding:24px;
-      background:radial-gradient(circle at 70% 20%,#dfe8ff 0%,#f6f8fd 55%,#ffffff 100%);
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-      color:#0f1b3d;text-align:center;
-    }
-    .box{max-width:520px}
-    .gears{width:124px;height:auto;margin-bottom:32px}
-    .g{transform-box:view-box}
-    .big{transform-origin:46px 72px;animation:cw 9s linear infinite}
-    .small{transform-origin:95.15px 37.59px;animation:ccw 6s linear infinite}
-    @keyframes cw{to{transform:rotate(360deg)}}
-    @keyframes ccw{to{transform:rotate(-360deg)}}
-    @media (prefers-reduced-motion:reduce){.g{animation:none}}
-    h1{font-size:clamp(28px,6vw,42px);line-height:1.15;font-weight:600;margin-bottom:16px}
-    p{font-size:17px;line-height:1.5;color:#3a4566}
-    .contact{margin-top:32px}
-    a{color:#1a4fe0;font-weight:600;text-decoration:none}
-    a:focus-visible{outline:2px solid #1a4fe0;outline-offset:3px;border-radius:4px}
-  </style>
+  <meta name="theme-color" content="#f4f7fc">
+  <title>SAPFIR — қозғалыс өнері | Алматыдағы би ансамблі</title>
+  <meta name="description" content="Алматыдағы SAPFIR би ансамблі. Заманауи би, этно-фьюжн және сахналық шоу. Ансамбльмен танысып, өнер көрсетуін тамашалаңыз және іс-шараңызға шақырыңыз.">
+  <link rel="canonical" href="https://sapfirshow.kz/kk/">
+  <link rel="alternate" hreflang="ru" href="https://sapfirshow.kz/"><link rel="alternate" hreflang="kk" href="https://sapfirshow.kz/kk/"><link rel="alternate" hreflang="ug-Cyrl" href="https://sapfirshow.kz/ug/"><link rel="alternate" hreflang="x-default" href="https://sapfirshow.kz/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SAPFIR">
+  <meta property="og:title" content="SAPFIR — қозғалыс өнері | Алматыдағы би ансамблі">
+  <meta property="og:description" content="Алматыдағы SAPFIR би ансамблі. Заманауи би, этно-фьюжн және сахналық шоу. Ансамбльмен танысып, өнер көрсетуін тамашалаңыз және іс-шараңызға шақырыңыз.">
+  <meta property="og:url" content="https://sapfirshow.kz/kk/">
+  <meta property="og:image" content="https://sapfirshow.kz/images/og-sapfir.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAPFIR — қозғалыс өнері | Алматыдағы би ансамблі">
+  <meta name="twitter:description" content="Алматыдағы SAPFIR би ансамблі. Заманауи би, этно-фьюжн және сахналық шоу. Ансамбльмен танысып, өнер көрсетуін тамашалаңыз және іс-шараңызға шақырыңыз.">
+  <meta name="twitter:image" content="https://sapfirshow.kz/images/og-sapfir.jpg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preload" href="../assets/fonts/manrope-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../images/hero-desktop-1659.webp" as="image" type="image/webp" media="(min-width: 761px)">
+  <link rel="preload" href="../images/hero-mobile-640.webp" as="image" type="image/webp" media="(max-width: 760px)" imagesrcset="../images/hero-mobile-640.webp 640w, ../images/hero-mobile-1024.webp 1024w" imagesizes="100vw">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "PerformingGroup", "@id": "https://sapfirshow.kz/#ensemble", "name": "SAPFIR", "url": "https://sapfirshow.kz/", "description": "Алматыдағы SAPFIR би ансамблі. Заманауи би, этно-фьюжн және сахналық шоу. Ансамбльмен танысып, өнер көрсетуін тамашалаңыз және іс-шараңызға шақырыңыз.", "image": "https://sapfirshow.kz/images/gallery1.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Алматы", "addressCountry": "KZ"}, "sameAs": ["https://www.instagram.com/sapfir_showballet/", "https://www.tiktok.com/@showballet_sapfir"], "contactPoint": [{"@type": "ContactPoint", "telephone": "+77712814246", "contactType": "booking", "availableLanguage": ["ru", "kk", "ug"]}, {"@type": "ContactPoint", "telephone": "+77052658643", "contactType": "booking", "availableLanguage": ["ru", "kk", "ug"]}]}</script>
+  <script type="application/json" id="site-strings">{"menu_open": "Мәзірді ашу", "menu_close": "Мәзірді жабу", "motion_pause": "Анимацияны тоқтату", "motion_resume": "Анимацияны қосу", "motion_system": "Анимация құрылғы баптауларында өшірілген", "zoom": "Суретті үлкейту", "zoom_out": "Суретті кішірейту", "whatsapp_intro": "Сәлеметсіз бе! SAPFIR ансамблін іс-шарамызға шақырғымыз келеді.", "whatsapp_end": "Бос күндер мен өнер көрсету бағасын айтып жіберіңізші.", "date": "Іс-шара күні", "event_city": "Қала", "event_type": "Іс-шараңыз", "message": "Тілектеріңіз", "photo_error": "Сурет жүктелмеді. Түпнұсқаны ашыңыз.", "open_photo": "Суретті ашу", "watch": "Өнер көрсетуді көру", "locale": "kk-KZ"}</script>
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
-  <main class="box">
-    <svg class="gears" viewBox="0 0 124 120" aria-hidden="true">
-      <path class="g big" fill="#1a4fe0" fill-rule="evenodd" d="M67.91 51.07 L77.48 46.05 L81.15 51.29 L73.16 58.57 L75.44 64.82 L86.24 65.27 L86.80 71.64 L76.24 73.96 L75.08 80.50 L84.22 86.29 L81.51 92.09 L71.21 88.81 L66.93 93.91 L71.95 103.48 L66.71 107.15 L59.43 99.16 L53.18 101.44 L52.73 112.24 L46.36 112.80 L44.04 102.24 L37.50 101.08 L31.71 110.22 L25.91 107.51 L29.19 97.21 L24.09 92.93 L14.52 97.95 L10.85 92.71 L18.84 85.43 L16.56 79.18 L5.76 78.73 L5.20 72.36 L15.76 70.04 L16.92 63.50 L7.78 57.71 L10.49 51.91 L20.79 55.19 L25.07 50.09 L20.05 40.52 L25.29 36.85 L32.57 44.84 L38.82 42.56 L39.27 31.76 L45.64 31.20 L47.96 41.76 L54.50 42.92 L60.29 33.78 L66.09 36.49 L62.81 46.79 Z M59.00 72.00 A13 13 0 1 0 33.00 72.00 A13 13 0 1 0 59.00 72.00 Z"/>
-      <path class="g small" fill="#7a9bf5" fill-rule="evenodd" d="M78.64 45.48 L67.96 47.08 L66.49 40.47 L76.85 37.41 L77.89 31.49 L69.21 25.07 L72.85 19.36 L82.33 24.52 L87.26 21.07 L85.65 10.40 L92.26 8.93 L95.32 19.29 L101.24 20.33 L107.66 11.65 L113.37 15.28 L108.21 24.77 L111.66 29.69 L122.34 28.09 L123.80 34.70 L113.45 37.76 L112.40 43.68 L121.09 50.10 L117.45 55.81 L107.96 50.65 L103.04 54.10 L104.64 64.78 L98.03 66.24 L94.97 55.88 L89.06 54.84 L82.64 63.53 L76.93 59.89 L82.09 50.40 Z M103.15 37.59 A8 8 0 1 0 87.15 37.59 A8 8 0 1 0 103.15 37.59 Z"/>
-    </svg>
-    <h1>Ведутся технические работы</h1>
-    <p>Приносим извинения за доставленные неудобства.</p>
-    <p class="contact">Для справок: <a href="mailto:neon@dev.com">neon@dev.com</a></p>
+  <a class="skip-link" href="#main">Мазмұнға өту</a>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 11.5A9 9 0 0 1 7.1 19l-4.6 1.5L4 16a9 9 0 1 1 17-4.5Z"/><path d="M8 7c0 5 4 9 8 9l1-2-3-1-1 1-3-3 1-1-1-3H8Z"/></symbol>
+  </defs></svg>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="./" aria-label="SAPFIR — Басты бет">sapfir</a>
+      <nav class="desktop-nav" aria-label="Негізгі навигация"><a href="#about">Ансамбль</a><a href="#films">Шоу</a><a href="#contact">Байланыс</a></nav>
+      <a class="button button-dark header-book" href="#contact">Шақыру <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <button class="icon-button menu-trigger" type="button" aria-label="Мәзірді ашу" aria-expanded="false" aria-controls="mobile-menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Негізгі навигация" hidden><a href="#about">Ансамбль</a><a href="#films">Шоу</a><a href="#contact">Байланыс</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <picture class="hero-art" aria-hidden="true">
+        <source media="(max-width:760px)" srcset="../images/hero-mobile-640.webp 640w, ../images/hero-mobile-1024.webp 1024w" sizes="100vw" width="1024" height="1536">
+        <img src="../images/hero-desktop-1659.webp" srcset="../images/hero-desktop-1200.webp 1200w, ../images/hero-desktop-1659.webp 1659w" sizes="100vw" width="1659" height="948" alt="" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="hero-content">
+        <h1 id="hero-title"><span>Қозғалыста</span><span>болу өнері.</span></h1>
+        <p class="hero-description">Би ансамблі SAPFIR · Алматы</p>
+        <a class="button button-blue hero-watch" href="#films">Өнер көрсетуді көру <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+    <section class="intro" id="about" aria-labelledby="intro-title">
+      <a class="intro-card" href="#team" aria-label="Қатысушылармен танысу">
+        <picture>
+          <source media="(max-width:760px)" srcset="../images/intro-mobile-750.webp 750w, ../images/intro-mobile-1536.webp 1536w" sizes="100vw">
+          <img src="../images/intro-2048.webp" srcset="../images/intro-1200.webp 1200w, ../images/intro-2048.webp 2048w" sizes="100vw" width="2048" height="683" alt="SAPFIR ансамблінің төрт қатысушысы сахналық киімде" loading="eager" decoding="async">
+        </picture>
+        <h2 id="intro-title"><span>Танысыңыз,</span><strong>SAPFIR</strong></h2>
+        <span class="intro-right"><span class="intro-motto">Дәстүр.
+Қозғалыс.
+Заманауи үн.</span><span class="circle"><svg class="icon"><use href="#i-next"/></svg></span></span>
+      </a>
+    </section>
+    <section class="team-section section container" id="team" aria-labelledby="team-title">
+      <div class="section-head reveal"><h2 id="team-title">Қатысушылар</h2><p>Біз музыканы қимылға, ал қимылды жаныңызда қалатын сезімге айналдырамыз.</p></div>
+      <div class="team-grid"><article class="team-card reveal" data-person="nigara"><a class="portrait photo-link" href="../images/nigara.jpg" data-lightbox="team" data-caption="Нигара" aria-label="Суретті ашу — Нигара"><img src="../images/nigara.webp" width="1000" height="1333" alt="SAPFIR ансамблінің қатысушысы — Нигара" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Нигара</h3></div></article><article class="team-card reveal" data-person="diyara"><a class="portrait photo-link" href="../images/diyara.jpg" data-lightbox="team" data-caption="Дияра" aria-label="Суретті ашу — Дияра"><img src="../images/diyara.webp" width="1000" height="1333" alt="SAPFIR ансамблінің қатысушысы — Дияра" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Дияра</h3></div></article><article class="team-card reveal" data-person="niyara"><a class="portrait photo-link" href="../images/niyara-original.png" data-lightbox="team" data-caption="Нияра" aria-label="Суретті ашу — Нияра"><img src="../images/niyara.webp" width="1179" height="2556" alt="SAPFIR ансамблінің қатысушысы — Нияра" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Нияра</h3></div></article><article class="team-card reveal" data-person="mira"><a class="portrait photo-link" href="../images/mira.jpg" data-lightbox="team" data-caption="Мира" aria-label="Суретті ашу — Мира"><img src="../images/mira.webp" width="1000" height="1333" alt="SAPFIR ансамблінің қатысушысы — Мира" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Мира</h3></div></article><article class="team-card reveal" data-person="yasmina"><a class="portrait photo-link" href="../images/yasmina.jpg" data-lightbox="team" data-caption="Ясмина" aria-label="Суретті ашу — Ясмина"><img src="../images/yasmina.webp" width="1152" height="1536" alt="SAPFIR ансамблінің қатысушысы — Ясмина" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Ясмина</h3></div></article><article class="team-card reveal" data-person="araylym"><a class="portrait photo-link" href="../images/araylym.jpg" data-lightbox="team" data-caption="Арайлым" aria-label="Суретті ашу — Арайлым"><img src="../images/araylym.webp" width="864" height="1536" alt="SAPFIR ансамблінің қатысушысы — Арайлым" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Арайлым</h3></div></article><article class="team-card reveal" data-person="sabrina"><a class="portrait photo-link" href="../images/sabrina.jpg" data-lightbox="team" data-caption="Сабрина" aria-label="Суретті ашу — Сабрина"><img src="../images/sabrina.webp" width="1159" height="1536" alt="SAPFIR ансамблінің қатысушысы — Сабрина" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Сабрина</h3></div></article><article class="team-card reveal" data-person="tamilla"><a class="portrait photo-link" href="../images/tamilla.jpg" data-lightbox="team" data-caption="Тамилла" aria-label="Суретті ашу — Тамилла"><img src="../images/tamilla.webp" width="1536" height="1027" alt="SAPFIR ансамблінің қатысушысы — Тамилла" loading="lazy" decoding="async"><span class="portrait-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><div class="person-info"><h3>Тамилла</h3></div></article></div>
+    </section>
+    <section class="film-section section" id="films" aria-labelledby="film-title">
+      <div class="container"><div class="section-head reveal"><div><h2 id="film-title">Жай ғана көру емес.<br><span class="soft-text">Сезіну.</span></h2></div><p>Жанды ырғақ. Әсем қимыл. Қайта көргің келетін әсер.</p></div>
+        <div class="film-stage reveal">
+          <a class="film-play" href="https://youtube.com/shorts/sjH-zabbUC0" target="_blank" rel="noopener noreferrer" data-open-video aria-label="Өнер көрсетуді көру">
+            <picture><source srcset="../images/gallery2-750.webp 750w, ../images/gallery2.webp 1500w" sizes="(max-width: 760px) 100vw, 80vw" type="image/webp"><img src="../images/gallery2.jpg" width="1500" height="2000" alt="SAPFIR ансамблінің өнер көрсетуі" loading="lazy" decoding="async"></picture>
+            <span class="film-shade"></span><span class="play-orb"><svg class="icon"><use href="#i-play"/></svg></span><span class="film-corner"><svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="gallery-section section container" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-head reveal"><div><h2 id="gallery-title">Есте қалатын<br><span class="soft-text">сәттер.</span></h2></div><p>Ансамбльдің шынайы сәттері, сахналық бейнелері мен сезімдері.</p></div>
+      <div class="gallery-grid"><a class="gallery-item photo-link reveal" href="../images/gallery.jpg" data-lightbox="gallery" data-caption="Есте қалатын сәттер" aria-label="Суретті ашу — Есте қалатын сәттер"><picture><source srcset="../images/gallery-750.webp 750w, ../images/gallery.webp 1500w" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="../images/gallery.jpg" alt="Есте қалатын сәттер — SAPFIR" width="1500" height="2000" loading="lazy" decoding="async"></picture><span class="gallery-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><a class="gallery-item photo-link reveal" href="../images/main.jpg" data-lightbox="gallery" data-caption="Бір ырғақта" aria-label="Суретті ашу — Бір ырғақта"><picture><source srcset="../images/main-750.webp 750w, ../images/main.webp 1500w" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="../images/main.jpg" alt="Бір ырғақта — SAPFIR" width="1500" height="2000" loading="lazy" decoding="async"></picture><span class="gallery-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><a class="gallery-item photo-link reveal" href="../images/gallery3.jpg" data-lightbox="gallery" data-caption="Сахнамыздың қуаты" aria-label="Суретті ашу — Сахнамыздың қуаты"><picture><source srcset="../images/gallery3-750.webp 750w, ../images/gallery3.webp 960w" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="../images/gallery3.jpg" alt="Сахнамыздың қуаты — SAPFIR" width="960" height="1280" loading="lazy" decoding="async"></picture><span class="gallery-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><a class="gallery-item photo-link reveal" href="../images/gallery4.jpg" data-lightbox="gallery" data-caption="Қозғалыстағы сұлулық" aria-label="Суретті ашу — Қозғалыстағы сұлулық"><picture><source srcset="../images/gallery4-750.webp 750w, ../images/gallery4.webp 1500w" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="../images/gallery4.jpg" alt="Қозғалыстағы сұлулық — SAPFIR" width="1500" height="2000" loading="lazy" decoding="async"></picture><span class="gallery-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a><a class="gallery-item photo-link reveal" href="../images/gallery1.jpg" data-lightbox="gallery" data-caption="Әр қимылда — сезім" aria-label="Суретті ашу — Әр қимылда — сезім"><picture><source srcset="../images/gallery1-750.webp 750w, ../images/gallery1.webp 1500w" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="../images/gallery1.jpg" alt="Әр қимылда — сезім — SAPFIR" width="1500" height="2000" loading="lazy" decoding="async"></picture><span class="gallery-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></span></a></div>
+      <p class="gallery-note">Суретті жақыннан көру үшін басыңыз.</p>
+    </section>
+    <section class="contact-section section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-ribbon" aria-hidden="true"><img src="../images/ribbon.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></div>
+      <div class="container contact-grid">
+        <div class="contact-copy reveal"><div class="eyebrow">Тапсырыс және әріптестік</div><h2 id="contact-title">Сіздің сахнаңыз.<br><span class="blue-text">Біздің сиқырымыз.</span></h2><p class="lead">Кейбір кештер есте қалуға лайық. Іс-шараңыз туралы айтыңыз — оның оқиғасынан бастайық.</p><div class="contact-socials"><a href="https://www.instagram.com/sapfir_showballet/" target="_blank" rel="noopener noreferrer">Instagram <svg class="icon"><use href="#i-arrow"/></svg></a><a href="https://www.tiktok.com/@showballet_sapfir" target="_blank" rel="noopener noreferrer">TikTok <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="booking-panel reveal"><h3>Кешіңізді бірге көркейтейік.</h3><p>Бірнеше мәлімет қалдырыңыз — өнер көрсетуді WhatsApp-та талқылаймыз.</p>
+          <form id="booking-form" action="https://wa.me/77712814246" method="get" target="_blank" rel="noopener noreferrer">
+            <input type="hidden" name="text" value="Сәлеметсіз бе! SAPFIR ансамблін іс-шарамызға шақырғымыз келеді. Бос күндер мен өнер көрсету бағасын айтып жіберіңізші.">
+            <div class="form-row"><label>Іс-шара күні<input type="date" name="event-date" autocomplete="off"></label><label>Қала<input name="city" type="text" maxlength="80" placeholder="Алматы" autocomplete="address-level2"></label></div>
+            <label>Іс-шараңыз<select name="event"><option value="">Форматты таңдаңыз</option><option>Үйлену тойы</option><option>Отбасылық мереке</option><option>Корпоративтік іс-шара</option><option>Басқа іс-шара</option></select></label>
+            <label>Тілектеріңіз <span class="optional">міндетті емес</span><textarea name="message" maxlength="1000" rows="2" placeholder="Кешіңізді қалай елестетесіз…"></textarea></label>
+            <button class="button button-blue booking-submit" type="submit">WhatsApp-та талқылау <svg class="icon"><use href="#i-wa"/></svg></button>
+            <p class="form-note">WhatsApp-та дайын мәтін ашылады. Хабарламаны өзіңіз жібересіз.</p>
+          </form>
+          <div class="direct-contacts"><span class="small-label">Немесе тікелей хабарласыңыз</span><div class="phone-row"><a href="https://wa.me/77712814246?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20SAPFIR%20%D0%B0%D0%BD%D1%81%D0%B0%D0%BC%D0%B1%D0%BB%D1%96%D0%BD%20%D1%96%D1%81-%D1%88%D0%B0%D1%80%D0%B0%D0%BC%D1%8B%D0%B7%D2%93%D0%B0%20%D1%88%D0%B0%D2%9B%D1%8B%D1%80%D2%93%D1%8B%D0%BC%D1%8B%D0%B7%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96.%20%D0%91%D0%BE%D1%81%20%D0%BA%D2%AF%D0%BD%D0%B4%D0%B5%D1%80%20%D0%BC%D0%B5%D0%BD%20%D3%A9%D0%BD%D0%B5%D1%80%20%D0%BA%D3%A9%D1%80%D1%81%D0%B5%D1%82%D1%83%20%D0%B1%D0%B0%D2%93%D0%B0%D1%81%D1%8B%D0%BD%20%D0%B0%D0%B9%D1%82%D1%8B%D0%BF%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D1%96%D2%A3%D1%96%D0%B7%D1%88%D1%96." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +7 771 281 4246">+7 771 281 4246 <svg class="icon"><use href="#i-wa"/></svg></a><a class="phone-call icon-button" href="tel:+77712814246" aria-label="Қоңырау шалу +7 771 281 4246"><svg class="icon"><use href="#i-phone"/></svg></a></div><div class="phone-row"><a href="https://wa.me/77052658643?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%20%D0%B1%D0%B5%21%20SAPFIR%20%D0%B0%D0%BD%D1%81%D0%B0%D0%BC%D0%B1%D0%BB%D1%96%D0%BD%20%D1%96%D1%81-%D1%88%D0%B0%D1%80%D0%B0%D0%BC%D1%8B%D0%B7%D2%93%D0%B0%20%D1%88%D0%B0%D2%9B%D1%8B%D1%80%D2%93%D1%8B%D0%BC%D1%8B%D0%B7%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96.%20%D0%91%D0%BE%D1%81%20%D0%BA%D2%AF%D0%BD%D0%B4%D0%B5%D1%80%20%D0%BC%D0%B5%D0%BD%20%D3%A9%D0%BD%D0%B5%D1%80%20%D0%BA%D3%A9%D1%80%D1%81%D0%B5%D1%82%D1%83%20%D0%B1%D0%B0%D2%93%D0%B0%D1%81%D1%8B%D0%BD%20%D0%B0%D0%B9%D1%82%D1%8B%D0%BF%20%D0%B6%D1%96%D0%B1%D0%B5%D1%80%D1%96%D2%A3%D1%96%D0%B7%D1%88%D1%96." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +7 705 265 8643">+7 705 265 8643 <svg class="icon"><use href="#i-wa"/></svg></a><a class="phone-call icon-button" href="tel:+77052658643" aria-label="Қоңырау шалу +7 705 265 8643"><svg class="icon"><use href="#i-phone"/></svg></a></div></div>
+        </div>
+      </div>
+    </section>
   </main>
+  <footer class="site-footer container">
+    <span class="copyright">© <span data-year>2026</span> SAPFIR · Алматы</span>
+    <nav class="footer-languages" aria-label="Тілді таңдау"><a href="../" lang="ru" data-language>RU</a><a href="../kk/" lang="kk" data-language aria-current="page">KZ</a><a href="../ug/" lang="ug" data-language>UG</a></nav>
+    <div class="footer-tools"><button class="motion-toggle icon-button" type="button" aria-pressed="false" aria-label="Анимацияны тоқтату" title="Анимацияны тоқтату"><svg class="icon"><use href="#i-pause"/></svg></button><a class="back-top text-link" href="#home">Жоғары <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+  </footer>
+  <dialog class="lightbox" id="lightbox" aria-label="Суреттерді көру"><div class="lightbox-shell"><div class="lightbox-toolbar"><span id="lightbox-counter" class="sr-only" aria-live="polite"></span><div><button type="button" class="icon-button" data-zoom aria-label="Суретті үлкейту" aria-pressed="false"><svg class="icon"><use href="#i-expand"/></svg></button><button type="button" class="icon-button" data-close aria-label="Жабу"><svg class="icon"><use href="#i-close"/></svg></button></div></div><div class="lightbox-image-wrap"><img id="lightbox-image" alt=""></div><div class="lightbox-bottom"><button type="button" class="icon-button previous" data-previous aria-label="Алдыңғы сурет"><svg class="icon"><use href="#i-next"/></svg></button><p id="lightbox-caption" aria-live="polite"></p><button type="button" class="icon-button" data-next aria-label="Келесі сурет"><svg class="icon"><use href="#i-next"/></svg></button></div></div></dialog>
+  <dialog class="video-dialog" id="video-dialog" aria-label="Өнер көрсетуді көру"><div class="video-shell"><div class="video-toolbar"><span>Видео</span><button class="icon-button" type="button" data-close-video aria-label="Жабу"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="video-frame-container"></div><a class="video-fallback" href="https://youtube.com/shorts/sjH-zabbUC0" target="_blank" rel="noopener noreferrer">Жүктелмеді ме? YouTube-та ашу ↗</a></div></dialog>
 </body>
 </html>
