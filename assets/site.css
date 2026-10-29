@@ -105,3 +105,16 @@ h2{font-size:clamp(34px,3.4vw,52px);line-height:1.16;letter-spacing:-.045em;font
 @media(hover:none){.portrait .portrait-expand,.gallery-expand{opacity:1;transform:none}.portrait:hover{transform:none;box-shadow:none}.button:hover{transform:none}}
 html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before,.motion-paused *:after{animation:none!important;transition:none!important}.motion-paused .reveal{opacity:1!important;transform:none!important}.motion-paused .hero-art{transform:none!important}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal,.motion-ready .reveal:not(.visible){opacity:1;transform:none}.hero-art{transform:none!important}}
+
+/* Focused revision: language selection in header and feathered image junction. */
+.header-actions{justify-self:end;display:flex;align-items:center;gap:22px}
+.header-languages{display:flex;align-items:center;gap:13px;flex-shrink:0}
+.header-languages a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;font-size:12px;font-weight:500}
+.header-languages a[aria-current]{color:var(--blue)}
+.hero-art{mask-image:linear-gradient(to bottom,#000 calc(100% - 45px),transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 45px),transparent 100%)}
+.intro{margin-top:16px}
+.intro-card picture{mask-image:linear-gradient(to bottom,transparent 0,#000 18px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18px)}
+.intro-card{background:var(--paper);box-shadow:none}
+@media(max-width:1100px) and (min-width:761px){.header-actions{gap:13px}.header-languages{gap:10px}.header-languages a{font-size:11px}.desktop-nav{gap:18px}.header-inner{gap:16px}.header-book{padding-inline:16px}}
+@media(max-width:760px){.header-actions{gap:14px}.header-languages{gap:12px}.header-languages a{font-size:11px}.intro{margin-top:10px}.intro-card picture{mask-image:linear-gradient(to bottom,transparent 0,#000 12px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12px)}.site-footer{display:flex;flex-wrap:wrap}.copyright{margin-right:auto}}
+@media(max-width:370px){.header-actions{gap:8px}.header-languages{gap:10px}}
