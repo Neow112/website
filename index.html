@@ -17,7 +17,13 @@
       color:#0f1b3d;text-align:center;
     }
     .box{max-width:520px}
-    .logo{font-size:36px;font-weight:500;letter-spacing:-.5px;margin-bottom:36px}
+    .gears{width:120px;height:auto;margin-bottom:32px}
+    .spin{transform-box:fill-box;transform-origin:center}
+    .cw{animation:cw 8s linear infinite}
+    .ccw{animation:ccw 5.3s linear infinite}
+    @keyframes cw{to{transform:rotate(360deg)}}
+    @keyframes ccw{to{transform:rotate(-360deg)}}
+    @media (prefers-reduced-motion:reduce){.spin{animation:none}}
     h1{font-size:clamp(28px,6vw,42px);line-height:1.15;font-weight:600;margin-bottom:16px}
     p{font-size:17px;line-height:1.5;color:#3a4566}
     .contact{margin-top:32px}
@@ -27,10 +33,27 @@
 </head>
 <body>
   <main class="box">
-    <div class="logo">sapfir</div>
+    <svg class="gears" viewBox="0 0 120 104" aria-hidden="true">
+      <defs>
+        <mask id="hole"><rect width="100" height="100" fill="#fff"/><circle cx="50" cy="50" r="13" fill="#000"/></mask>
+        <g id="gear" mask="url(#hole)">
+          <circle cx="50" cy="50" r="32"/>
+          <rect x="43" y="6" width="14" height="20" rx="3"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(45 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(90 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(135 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(180 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(225 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(270 50 50)"/>
+          <rect x="43" y="6" width="14" height="20" rx="3" transform="rotate(315 50 50)"/>
+        </g>
+      </defs>
+      <g transform="translate(0 20) scale(.84)"><use href="#gear" class="spin cw" fill="#1a4fe0"/></g>
+      <g transform="translate(59 6) scale(.56)"><use href="#gear" class="spin ccw" fill="#7a9bf5"/></g>
+    </svg>
     <h1>Ведутся технические работы</h1>
     <p>Приносим извинения за доставленные неудобства.</p>
-    <p class="contact">Пригласить ансамбль: <a href="tel:+77000000000">+7 700 000 00 00</a></p>
+    <p class="contact">Для справок: <a href="mailto:neon@dev.com">neon@dev.com</a></p>
   </main>
 </body>
 </html>
