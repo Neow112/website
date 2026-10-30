@@ -157,3 +157,6 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 /* Participant portraits: clean photo view without decorative ribbons. */
 .lightbox[data-person]:not([data-person="gallery"]) .photo-stage:before,
 .lightbox[data-person]:not([data-person="gallery"]) .photo-stage:after{display:none!important}
+
+/* No decorative ribbons in any photo viewer. */
+.lightbox .photo-stage:before,.lightbox .photo-stage:after,.lightbox-shell:before{display:none!important}
