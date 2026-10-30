@@ -138,3 +138,18 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 .portrait{aspect-ratio:3/4}
 .gallery-item:nth-child(n){aspect-ratio:3/4!important;margin:0!important;transform:none}
 @media(max-width:760px){.contact-section{padding-bottom:90px}.contact-ribbon{width:160%;max-width:none;left:-30%;top:auto;bottom:-10px;opacity:.4}.lightbox-image-wrap{padding:12px 18px}.lightbox-shell:before{background-size:auto 80%;opacity:.2}.portrait{aspect-ratio:3/4}}
+
+@media(max-width:760px){.intro-card img{transform:none!important;transition:none;image-rendering:auto}}
+
+/* Each portrait gets its own dimensional ribbon, fitted to the photo edges. */
+.lightbox-shell:before{display:none}
+.lightbox{background:radial-gradient(ellipse at 50% 45%,#fff 30%,#fff3f1 100%)}
+.lightbox-image-wrap{position:relative;overflow:hidden;padding:0;isolation:isolate}
+.photo-stage{position:relative;flex:none;isolation:isolate}
+.photo-frame{position:absolute;inset:0;overflow:hidden;border-radius:26px;background:#fff;box-shadow:0 22px 45px #57121c26,0 3px 9px #35071118;border:1px solid #ffffffd9;z-index:1}
+.lightbox-image-wrap .photo-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.photo-stage:before,.photo-stage:after{content:"";position:absolute;pointer-events:none;background:url('../images/ribbon-red.webp') center/100% 100% no-repeat;filter:saturate(1.2) contrast(1.08) drop-shadow(0 7px 7px #5d071d28);opacity:1}
+.photo-stage:before{inset:-10% -36%;z-index:0;transform:translateX(var(--ribbon-x,0%)) rotate(var(--ribbon-angle,-10deg)) scaleX(var(--ribbon-flip,1))}
+.photo-stage:after{inset:5% -24% -8%;z-index:2;transform:translateY(var(--front-y,0%)) rotate(var(--front-angle,8deg)) scaleX(var(--ribbon-flip,1));clip-path:polygon(0 74%,18% 80%,48% 94%,80% 83%,100% 73%,100% 100%,0 100%)}
+.lightbox-toolbar,.lightbox-bottom{position:relative;z-index:3}
+@media(max-width:760px){.photo-frame{border-radius:20px;box-shadow:0 14px 28px #57121c25}.photo-stage:before{inset:-7% -25%}.photo-stage:after{inset:6% -18% -6%}.lightbox-image-wrap{padding:0}}

@@ -102,6 +102,24 @@
   const lightbox = $('#lightbox');
   const photo = $('#lightbox-image');
   const imageWrap = $('.lightbox-image-wrap');
+  const photoStage = $('.photo-stage');
+  const fitPhotoStage = () => {
+    if (!lightbox.open || !photo.naturalWidth) return;
+    const availableWidth = imageWrap.clientWidth * (innerWidth <= 760 ? .86 : .72);
+    const availableHeight = imageWrap.clientHeight * .88;
+    const ratio = photo.naturalWidth / photo.naturalHeight;
+    const width = Math.min(availableWidth, availableHeight * ratio);
+    photoStage.style.width = `${width}px`;
+    photoStage.style.height = `${width / ratio}px`;
+  };
+  photo.addEventListener('load', fitPhotoStage);
+  new ResizeObserver(fitPhotoStage).observe(imageWrap);
+  const ribbonPoses = {
+    nigara: [-11, 1, -5, 9, 0], diyara: [8, -1, 4, -7, 5],
+    niyara: [-18, -1, -7, 14, -4], mira: [15, 1, 6, -10, 8],
+    yasmina: [-6, -1, 8, 18, -6], araylym: [21, 1, -8, -15, 3],
+    sabrina: [-23, 1, 2, 6, 10], tamilla: [5, -1, -4, -19, -8]
+  };
   const counter = $('#lightbox-counter');
   const caption = $('#lightbox-caption');
   let activePhotos = [];
@@ -113,6 +131,12 @@
   const showPhoto = () => {
     resetZoom();
     const link = activePhotos[photoIndex];
+    const person = link.closest('[data-person]')?.dataset.person;
+    const pose = ribbonPoses[person] || Object.values(ribbonPoses)[photoIndex % 8];
+    lightbox.dataset.person = person || 'gallery';
+    ['--ribbon-angle','--ribbon-flip','--ribbon-x','--front-angle','--front-y'].forEach((name,i) => {
+      photoStage.style.setProperty(name, String(pose[i]) + (i === 1 ? '' : i === 0 || i === 3 ? 'deg' : '%'));
+    });
     photo.src = link.href;
     photo.alt = link.dataset.caption || $('img', link).alt;
     caption.textContent = link.dataset.caption || '';
@@ -129,6 +153,7 @@
     opener = link;
     showPhoto();
     lightbox.showModal();
+    requestAnimationFrame(fitPhotoStage);
     lockBody();
     $('[data-close]').focus({ preventScroll: true });
   }));
