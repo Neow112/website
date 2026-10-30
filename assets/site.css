@@ -118,3 +118,7 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 @media(max-width:1100px) and (min-width:761px){.header-actions{gap:13px}.header-languages{gap:10px}.header-languages a{font-size:11px}.desktop-nav{gap:18px}.header-inner{gap:16px}.header-book{padding-inline:16px}}
 @media(max-width:760px){.header-actions{gap:14px}.header-languages{gap:12px}.header-languages a{font-size:11px}.intro{margin-top:10px}.intro-card picture{mask-image:linear-gradient(to bottom,transparent 0,#000 12px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12px)}.site-footer{display:flex;flex-wrap:wrap}.copyright{margin-right:auto}}
 @media(max-width:370px){.header-actions{gap:8px}.header-languages{gap:10px}}
+
+/* Approved red scene: preserve image proportions and all four dancers. */
+@media(min-width:761px){.hero{aspect-ratio:1836/1024}.hero-art img{object-fit:cover}.hero-content{max-width:40%}.hero h1{font-size:clamp(32px,4.05vw,69px)}.hero-description{font-size:clamp(12px,1.3vw,20px)}}
+@media(max-width:760px){.hero-art{aspect-ratio:1126/1024}.intro-card img{object-position:center}}
