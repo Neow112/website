@@ -153,3 +153,7 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 .photo-stage:after{inset:5% -24% -8%;z-index:2;transform:translateY(var(--front-y,0%)) rotate(var(--front-angle,8deg)) scaleX(var(--ribbon-flip,1));clip-path:polygon(0 74%,18% 80%,48% 94%,80% 83%,100% 73%,100% 100%,0 100%)}
 .lightbox-toolbar,.lightbox-bottom{position:relative;z-index:3}
 @media(max-width:760px){.photo-frame{border-radius:20px;box-shadow:0 14px 28px #57121c25}.photo-stage:before{inset:-7% -25%}.photo-stage:after{inset:6% -18% -6%}.lightbox-image-wrap{padding:0}}
+
+/* Participant portraits: clean photo view without decorative ribbons. */
+.lightbox[data-person]:not([data-person="gallery"]) .photo-stage:before,
+.lightbox[data-person]:not([data-person="gallery"]) .photo-stage:after{display:none!important}
