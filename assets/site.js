@@ -201,30 +201,5 @@
   videoDialog.addEventListener('click', event => { if (event.target === videoDialog) videoDialog.close(); });
   videoDialog.addEventListener('close', () => { frameContainer.replaceChildren(); unlockBody(); $('[data-open-video]').focus({ preventScroll: true }); });
 
-  const form = $('#booking-form');
-  const dateField = $('[name="event-date"]', form);
-  const now = new Date();
-  dateField.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const lines = [strings.whatsapp_intro];
-    const dateValue = data.get('event-date');
-    if (dateValue) {
-      let formatted = dateValue;
-      try { formatted = new Intl.DateTimeFormat(strings.locale, { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(dateValue + 'T12:00:00')); } catch {}
-      lines.push(`${strings.date}: ${formatted}`);
-    }
-    const city = String(data.get('city') || '').trim();
-    const type = String(data.get('event') || '').trim();
-    const message = String(data.get('message') || '').trim();
-    if (city) lines.push(`${strings.event_city}: ${city}`);
-    if (type) lines.push(`${strings.event_type}: ${type}`);
-    if (message) lines.push(`${strings.message}: ${message}`);
-    lines.push(strings.whatsapp_end);
-    const url = 'https://wa.me/77712814246?text=' + encodeURIComponent(lines.join('\n'));
-    const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; document.body.append(a); a.click(); a.remove();
-  });
-  $('[data-year]').textContent = String(now.getFullYear());
+  $('[data-year]').textContent = String(new Date().getFullYear());
 })();

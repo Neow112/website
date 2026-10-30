@@ -160,3 +160,6 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 
 /* No decorative ribbons in any photo viewer. */
 .lightbox .photo-stage:before,.lightbox .photo-stage:after,.lightbox-shell:before{display:none!important}
+
+/* Direct contacts without the booking form. */
+.contact-details .direct-contacts{border:0;margin:0;padding:0}.contact-details{align-self:center;padding:24px 0}.contact-details .small-label{font-size:13px}.contact-details .phone-row{max-width:360px}
