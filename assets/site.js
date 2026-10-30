@@ -102,7 +102,6 @@
   const lightbox = $('#lightbox');
   const photo = $('#lightbox-image');
   const imageWrap = $('.lightbox-image-wrap');
-  const zoom = $('[data-zoom]');
   const counter = $('#lightbox-counter');
   const caption = $('#lightbox-caption');
   let activePhotos = [];
@@ -110,7 +109,7 @@
   let opener = null;
   const lockBody = () => document.body.classList.add('modal-open');
   const unlockBody = () => { if (!$('dialog[open]')) document.body.classList.remove('modal-open'); };
-  const resetZoom = () => { imageWrap.classList.remove('zoomed'); zoom.setAttribute('aria-pressed', 'false'); zoom.setAttribute('aria-label', strings.zoom); imageWrap.scrollTo(0, 0); };
+  const resetZoom = () => { imageWrap.scrollTo(0, 0); };
   const showPhoto = () => {
     resetZoom();
     const link = activePhotos[photoIndex];
@@ -136,7 +135,6 @@
   $('[data-close]').addEventListener('click', () => lightbox.close());
   $('[data-previous]').addEventListener('click', () => navigatePhoto(-1));
   $('[data-next]').addEventListener('click', () => navigatePhoto(1));
-  zoom.addEventListener('click', () => { const on = imageWrap.classList.toggle('zoomed'); zoom.setAttribute('aria-pressed', String(on)); zoom.setAttribute('aria-label', on ? strings.zoom_out : strings.zoom); });
   lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
   lightbox.addEventListener('close', () => { unlockBody(); resetZoom(); if (opener) opener.focus({ preventScroll: true }); });
   lightbox.addEventListener('keydown', event => {
