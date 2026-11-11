@@ -184,22 +184,63 @@
 
   const videoDialog = $('#video-dialog');
   const frameContainer = $('.video-frame-container');
-  $('[data-open-video]').addEventListener('click', event => {
+  const videoFallback = $('.video-fallback');
+  const embedUrl = url => {
+    let m;
+    if ((m = url.match(/(?:youtube\.com\/(?:shorts\/|watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]{6,})/))) return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?playsinline=1&rel=0&autoplay=1';
+    if ((m = url.match(/instagram\.com\/(?:[\w.]+\/)?(?:reels?|p|tv)\/([\w-]+)/))) return 'https://www.instagram.com/reel/' + m[1] + '/embed/';
+    if ((m = url.match(/tiktok\.com\/.*?\/video\/(\d+)/))) return 'https://www.tiktok.com/embed/v2/' + m[1];
+    return null;
+  };
+  let videoOpener = null;
+  $$('[data-open-video]').forEach(link => link.addEventListener('click', event => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || typeof videoDialog.showModal !== 'function') return;
+    const src = embedUrl(link.href);
+    if (!src) return;
     event.preventDefault();
+    videoOpener = link;
     const frame = document.createElement('iframe');
-    frame.src = 'https://www.youtube-nocookie.com/embed/sjH-zabbUC0?playsinline=1&rel=0&autoplay=1';
+    frame.src = src;
     frame.title = 'SAPFIR — ' + strings.watch;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     frame.allowFullscreen = true;
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     frameContainer.replaceChildren(frame);
+    if (videoFallback) {
+      videoFallback.href = link.href;
+      if (strings.video_fallback) videoFallback.textContent = strings.video_fallback.replace('{p}', link.dataset.platform || 'YouTube');
+    }
     videoDialog.showModal(); lockBody();
     $('[data-close-video]').focus({ preventScroll: true });
-  });
+  }));
   $('[data-close-video]').addEventListener('click', () => videoDialog.close());
   videoDialog.addEventListener('click', event => { if (event.target === videoDialog) videoDialog.close(); });
-  videoDialog.addEventListener('close', () => { frameContainer.replaceChildren(); unlockBody(); $('[data-open-video]').focus({ preventScroll: true }); });
+  videoDialog.addEventListener('close', () => { frameContainer.replaceChildren(); unlockBody(); if (videoOpener) videoOpener.focus({ preventScroll: true }); });
+
+  $$('.film-stage.is-carousel').forEach(stage => {
+    const track = $('.film-track', stage);
+    const prev = $('[data-film-prev]', stage);
+    const next = $('[data-film-next]', stage);
+    const bar = $('.film-progress', stage);
+    const step = () => { const card = $('.film-play', track); return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth; };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const pos = max > 0 ? track.scrollLeft / max : 0;
+      stage.classList.toggle('no-scroll', max <= 4);
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = track.scrollLeft >= max - 4;
+      if (bar) {
+        const size = Math.min(100, track.clientWidth / track.scrollWidth * 100);
+        bar.style.setProperty('--film-size', size + '%');
+        bar.style.setProperty('--film-pos', (pos * (100 - size) / size * 100) + '%');
+      }
+    };
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    addEventListener('resize', update);
+    update();
+  });
 
   $('[data-year]').textContent = String(new Date().getFullYear());
 })();

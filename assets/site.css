@@ -163,3 +163,37 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
 
 /* Direct contacts without the booking form. */
 .contact-details .direct-contacts{border:0;margin:0;padding:0}.contact-details{align-self:center;padding:24px 0}.contact-details .small-label{font-size:13px}.contact-details .phone-row{max-width:360px}
+
+/* Шоу: одно видео — широкая карточка, несколько — карусель */
+.film-track{display:block}
+.film-stage.is-carousel{border-radius:0;overflow:visible;background:none}
+.is-carousel .film-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;padding-bottom:2px}
+.is-carousel .film-track::-webkit-scrollbar{display:none}
+.is-carousel .film-play{flex:0 0 calc((100% - 36px)/3);aspect-ratio:.8;border-radius:26px;overflow:hidden;background:#d7e2f1;scroll-snap-align:start}
+.is-carousel[data-count="2"] .film-play{flex-basis:calc((100% - 18px)/2);aspect-ratio:1.05}
+.is-carousel .film-play img{object-position:50% 35%}
+.is-carousel .play-orb{height:68px;width:68px}
+.is-carousel .play-orb .icon{width:25px;height:25px}
+.is-carousel .film-caption{left:26px;right:70px;bottom:27px}
+.is-carousel .film-caption strong{font-size:21px;line-height:1.2;margin-top:0}
+.is-carousel .film-corner{bottom:27px;right:26px}
+.film-controls{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px}
+.film-progress{flex:1;max-width:240px;height:2px;border-radius:2px;background:#d3dcea;overflow:hidden}
+.film-progress i{display:block;height:100%;width:var(--film-size,33%);background:var(--ink);border-radius:2px;transform:translateX(var(--film-pos,0%));transition:transform .35s var(--ease)}
+.film-arrows{display:flex;gap:10px}
+.no-scroll .film-controls{display:none}
+.film-arrow{border:1px solid #cfd8e6;background:#fff;color:var(--ink);transition:background .2s,opacity .2s,border-color .2s}
+.film-arrow:hover{border-color:var(--ink)}
+.film-arrow:disabled{opacity:.35;cursor:default;border-color:#cfd8e6}
+.film-prev .icon{transform:rotate(180deg)}
+.film-play:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media(max-width:760px){
+  .is-carousel .film-track{gap:12px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px}
+  .is-carousel .film-play,.is-carousel[data-count="2"] .film-play{flex-basis:80%;aspect-ratio:.8;border-radius:19px}
+  .is-carousel .play-orb{height:58px;width:58px}
+  .is-carousel .film-caption{left:20px;right:56px;bottom:22px}
+  .is-carousel .film-caption strong{font-size:18px}
+  .is-carousel .film-corner{bottom:23px;right:20px}
+  .film-controls{margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){.is-carousel .film-track{scroll-behavior:auto}.film-progress i{transition:none}}
