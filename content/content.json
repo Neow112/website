@@ -117,7 +117,7 @@
     },
     {
       "id": "niyara",
-      "name": "Ниара",
+      "name": "Нияра",
       "photo": {
         "src": "niyara.webp",
         "full": "niyara-original.png",
@@ -139,8 +139,8 @@
         "h": 1333
       },
       "focus": {
-        "x": 50,
-        "y": 39
+        "x": 38,
+        "y": 79
       }
     },
     {
