@@ -117,14 +117,17 @@
     },
     {
       "id": "niyara",
-      "name": "Нияра",
+      "name": "Ниара",
       "photo": {
         "src": "niyara.webp",
         "full": "niyara-original.png",
         "w": 1179,
         "h": 2050
       },
-      "focus": null
+      "focus": {
+        "x": 64,
+        "y": 57
+      }
     },
     {
       "id": "mira",
@@ -135,7 +138,10 @@
         "w": 1000,
         "h": 1333
       },
-      "focus": null
+      "focus": {
+        "x": 50,
+        "y": 39
+      }
     },
     {
       "id": "yasmina",
