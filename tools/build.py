@@ -64,14 +64,20 @@ def validate(c):
         w = 'Фото галереи %d' % i
         need_langs(g.get('caption'), w)
         b = g['photo']['base']
-        for f in (b + '.jpg', b + '.webp', b + '-750.webp'): need_file(f, w)
+        if g['photo'].get('format') == 'jpg':
+            files = (b + '.jpg', '%s-750.jpg' % b, '%s-%d.jpg' % (b, g['photo']['w']))
+        else:
+            files = (b + '.jpg', b + '.webp', b + '-750.webp')
+        for f in files: need_file(f, w)
         need_focus(g.get('focus'), w)
     for i, v in enumerate(c['videos'], 1):
         w = 'Видео %d' % i
         if not video_platform(v.get('url', '')): errs.append(w + ': ссылка не похожа на YouTube, Instagram или TikTok')
         if v.get('title') is not None: need_langs(v['title'], w + ', подпись')
         cv = v['cover']
-        for f in (cv['base'] + '.jpg', cv['base'] + '.webp', '%s-%d.webp' % (cv['base'], cv['small'])): need_file(f, w)
+        ext = 'jpg' if cv.get('format') == 'jpg' else 'webp'
+        large = '%s-%d.jpg' % (cv['base'], cv['w']) if ext == 'jpg' else cv['base'] + '.webp'
+        for f in (cv['base'] + '.jpg', large, '%s-%d.%s' % (cv['base'], cv['small'], ext)): need_file(f, w)
     ct = c['contacts']
     if not ct['phones']: errs.append('Контакты: нужен хотя бы один телефон')
     for i, p in enumerate(ct['phones'], 1):
@@ -97,8 +103,12 @@ def render_gallery(c, lang, L, p):
     out = []
     for g in c['gallery']:
         cap = esc(g['caption'][lang]); b = esc(g['photo']['base']); w, h = g['photo']['w'], g['photo']['h']
-        out.append('<a class="gallery-item photo-link reveal" href="%simages/%s.jpg" data-lightbox="gallery" data-caption="%s" aria-label="%s — %s"><picture><source srcset="%simages/%s-750.webp 750w, %simages/%s.webp %dw" sizes="(max-width: 760px) 48vw, 31vw" type="image/webp"><img src="%simages/%s.jpg" alt="%s — SAPFIR" width="%d" height="%d" loading="lazy" decoding="async"%s></picture></a>'
-                   % (p, b, cap, esc(L['open_photo']), cap, p, b, p, b, w, p, b, cap, w, h, focus_style(g.get('focus'))))
+        if g['photo'].get('format') == 'jpg':
+            srcset = '%simages/%s-750.jpg 750w, %simages/%s-%d.jpg %dw' % (p, b, p, b, w, w); mime = 'image/jpeg'
+        else:
+            srcset = '%simages/%s-750.webp 750w, %simages/%s.webp %dw' % (p, b, p, b, w); mime = 'image/webp'
+        out.append('<a class="gallery-item photo-link reveal" href="%simages/%s.jpg" data-lightbox="gallery" data-caption="%s" aria-label="%s — %s"><picture><source srcset="%s" sizes="(max-width: 760px) 48vw, 31vw" type="%s"><img src="%simages/%s.jpg" alt="%s — SAPFIR" width="%d" height="%d" loading="lazy" decoding="async"%s></picture></a>'
+                   % (p, b, cap, esc(L['open_photo']), cap, srcset, mime, p, b, cap, w, h, focus_style(g.get('focus'))))
     return ''.join(out)
 
 def render_videos(c, lang, L, p):
@@ -112,12 +122,16 @@ def render_videos(c, lang, L, p):
         sizes = '(max-width: 760px) 82vw, 31vw' if car else '(max-width: 760px) 100vw, 80vw'
         label = L['watch'] + (' — ' + title if title else '')
         cap = '<span class="film-caption"><strong>%s</strong></span>' % esc(title) if title else ''
+        if cv.get('format') == 'jpg':
+            srcset = '%simages/%s-%d.jpg %dw, %simages/%s-%d.jpg %dw' % (p, b, cv['small'], cv['small'], p, b, cv['w'], cv['w']); mime = 'image/jpeg'
+        else:
+            srcset = '%simages/%s-%d.webp %dw, %simages/%s.webp %dw' % (p, b, cv['small'], cv['small'], p, b, cv['w']); mime = 'image/webp'
         cards.append('<a class="film-play" href="%s" target="_blank" rel="noopener noreferrer" data-open-video data-platform="%s" aria-label="%s">'
-                     '<picture><source srcset="%simages/%s-%d.webp %dw, %simages/%s.webp %dw" sizes="%s" type="image/webp">'
+                     '<picture><source srcset="%s" sizes="%s" type="%s">'
                      '<img src="%simages/%s.jpg" width="%d" height="%d" alt="%s" loading="lazy" decoding="async"></picture>'
                      '<span class="film-shade"></span><span class="play-orb"><svg class="icon"><use href="#i-play"/></svg></span>%s'
                      '<span class="film-corner"><svg class="icon"><use href="#i-arrow"/></svg></span></a>'
-                     % (esc(v['url']), video_platform(v['url']), esc(label), p, b, cv['small'], cv['small'], p, b, cv['w'], sizes,
+                     % (esc(v['url']), video_platform(v['url']), esc(label), srcset, sizes, mime,
                         p, b, cv['w'], cv['h'], esc(title or L['video_alt']), cap))
     out = '<div class="film-stage reveal%s" data-count="%d"><div class="film-track">%s</div>' % (' is-carousel' if car else '', n, ''.join(cards))
     if car:
