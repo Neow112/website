@@ -94,16 +94,6 @@
   },
   "members": [
     {
-      "id": "nigara",
-      "name": "Нигара",
-      "photo": {
-        "src": "nigara.webp",
-        "full": "nigara.jpg",
-        "w": 1000,
-        "h": 1333
-      }
-    },
-    {
       "id": "diyara",
       "name": "Дияра",
       "photo": {
@@ -114,17 +104,13 @@
       }
     },
     {
-      "id": "niyara",
-      "name": "Нияра",
+      "id": "nigara",
+      "name": "Нигара",
       "photo": {
-        "src": "niyara.webp",
-        "full": "niyara-original.png",
-        "w": 1179,
-        "h": 2050
-      },
-      "focus": {
-        "x": 49,
-        "y": 35
+        "src": "nigara.webp",
+        "full": "nigara.jpg",
+        "w": 1000,
+        "h": 1333
       }
     },
     {
@@ -142,22 +128,36 @@
       }
     },
     {
+      "id": "niyara",
+      "name": "Нияра",
+      "photo": {
+        "src": "niyara.webp",
+        "full": "niyara-original.png",
+        "w": 1179,
+        "h": 2050
+      },
+      "focus": {
+        "x": 49,
+        "y": 35
+      }
+    },
+    {
+      "id": "tamilla",
+      "name": "Тамилла",
+      "photo": {
+        "src": "tamilla.webp",
+        "full": "tamilla.jpg",
+        "w": 1536,
+        "h": 1027
+      }
+    },
+    {
       "id": "yasmina",
       "name": "Ясмина",
       "photo": {
         "src": "yasmina.webp",
         "full": "yasmina.jpg",
         "w": 1152,
-        "h": 1536
-      }
-    },
-    {
-      "id": "araylym",
-      "name": "Арайлым",
-      "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
         "h": 1536
       }
     },
@@ -172,30 +172,17 @@
       }
     },
     {
-      "id": "tamilla",
-      "name": "Тамилла",
+      "id": "araylym",
+      "name": "Арайлым",
       "photo": {
-        "src": "tamilla.webp",
-        "full": "tamilla.jpg",
-        "w": 1536,
-        "h": 1027
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
       }
     }
   ],
   "gallery": [
-    {
-      "id": "main",
-      "photo": {
-        "base": "main",
-        "w": 1500,
-        "h": 2000
-      },
-      "caption": {
-        "ru": "В одном ритме",
-        "kk": "Бір ырғақта",
-        "ug": "Бир ритмда"
-      }
-    },
     {
       "id": "gallery",
       "photo": {
@@ -207,6 +194,19 @@
         "ru": "Мгновения, которые остаются",
         "kk": "Есте қалатын сәттер",
         "ug": "Әстә қалидиған дәмләр"
+      }
+    },
+    {
+      "id": "main",
+      "photo": {
+        "base": "main",
+        "w": 1500,
+        "h": 2000
+      },
+      "caption": {
+        "ru": "В одном ритме",
+        "kk": "Бір ырғақта",
+        "ug": "Бир ритмда"
       }
     },
     {
@@ -236,19 +236,6 @@
       }
     },
     {
-      "id": "gallery4",
-      "photo": {
-        "base": "gallery4",
-        "w": 1500,
-        "h": 2000
-      },
-      "caption": {
-        "ru": "Красота в движении",
-        "kk": "Қозғалыстағы сұлулық",
-        "ug": "Һәрәкәттики гөзәллик"
-      }
-    },
-    {
       "id": "gallery1",
       "photo": {
         "base": "gallery1",
@@ -259,6 +246,19 @@
         "ru": "За каждым движением — чувство",
         "kk": "Әр қимылда — сезім",
         "ug": "Һәр бир һәрәкәттә — һессият"
+      }
+    },
+    {
+      "id": "gallery4",
+      "photo": {
+        "base": "gallery4",
+        "w": 1500,
+        "h": 2000
+      },
+      "caption": {
+        "ru": "Красота в движении",
+        "kk": "Қозғалыстағы сұлулық",
+        "ug": "Һәрәкәттики гөзәллик"
       }
     }
   ],
