@@ -138,22 +138,22 @@
       }
     },
     {
+      "id": "tamilla",
+      "name": "Тамилла",
+      "photo": {
+        "src": "tamilla.webp",
+        "full": "tamilla.jpg",
+        "w": 1536,
+        "h": 1027
+      }
+    },
+    {
       "id": "araylym",
       "name": "Арайлым",
       "photo": {
         "src": "araylym.webp",
         "full": "araylym.jpg",
         "w": 864,
-        "h": 1536
-      }
-    },
-    {
-      "id": "sabrina",
-      "name": "Сабрина",
-      "photo": {
-        "src": "sabrina.webp",
-        "full": "sabrina.jpg",
-        "w": 1159,
         "h": 1536
       }
     },
@@ -172,13 +172,13 @@
       }
     },
     {
-      "id": "tamilla",
-      "name": "Тамилла",
+      "id": "sabrina",
+      "name": "Сабрина",
       "photo": {
-        "src": "tamilla.webp",
-        "full": "tamilla.jpg",
-        "w": 1536,
-        "h": 1027
+        "src": "sabrina.webp",
+        "full": "sabrina.jpg",
+        "w": 1159,
+        "h": 1536
       }
     }
   ],
