@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E1A33">
+<title>Админ.панель SAPFIR — скачать</title>
+<link rel="icon" href="icon.png">
+<style>
+@font-face{font-family:Manrope;src:url('../assets/fonts/manrope-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Manrope;src:url('../assets/fonts/manrope-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:Manrope;src:url('../assets/fonts/manrope-600.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:Manrope;src:url('../assets/fonts/manrope-700.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--ink:#0E1A33;--blue:#3B7BFF;--soft:#9CC3FF;--ease:cubic-bezier(.1,.9,.2,1);color-scheme:dark}
+*,*:before,*:after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:Manrope,Arial,sans-serif;background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid var(--soft);outline-offset:4px;border-radius:12px}
+
+/* фон: медленно плывущий свет */
+.glow{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.g1{width:720px;height:720px;right:-220px;top:-260px;background:#2C5BD8;filter:blur(130px);opacity:.55;animation:drift 16s ease-in-out infinite}
+.g2{width:640px;height:640px;left:-240px;bottom:-300px;background:#6A4FD6;filter:blur(140px);opacity:.28;animation:drift 20s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,40px)}}
+
+.wrap{position:relative;z-index:1;width:min(1080px,calc(100% - 40px));margin:0 auto;padding:72px 0 48px}
+.hero{display:flex;gap:48px;align-items:flex-start}
+.main{flex:1 1 auto;min-width:0}
+
+.word{position:relative;display:inline-block;font-size:clamp(64px,11vw,108px);font-weight:500;letter-spacing:-.069em;line-height:1}
+.word span{display:block;animation:up .9s var(--ease) both}
+.dot{position:absolute;right:-.2em;top:.08em;width:.17em;height:.17em;border-radius:50%;background:var(--blue);animation:pop .6s cubic-bezier(.3,1.6,.5,1) .55s both}
+.by{margin-top:14px;font-size:16px;color:rgba(255,255,255,.55);animation:fade 1s ease .8s both}
+.by b{color:#fff;font-weight:600}
+h1{margin:28px 0 0;font-size:clamp(22px,3.2vw,28px);font-weight:600;letter-spacing:-.01em;animation:up .9s var(--ease) .3s both}
+.lead{margin:8px 0 0;color:rgba(255,255,255,.62);font-size:15px;line-height:1.6;animation:up .9s var(--ease) .38s both}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;animation:up .9s var(--ease) .48s both}
+.pri{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:58px;padding:0 30px;border-radius:29px;background:#fff;color:#14233F;font-size:16px;font-weight:600;box-shadow:0 10px 40px rgba(59,123,255,.35);transition:transform .35s var(--ease),box-shadow .35s}
+.pri:hover{transform:translateY(-2px);box-shadow:0 16px 52px rgba(59,123,255,.5)}
+.pri:active{transform:scale(.97)}
+.sec{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 24px;border-radius:29px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);font-size:15px;font-weight:600;transition:background .25s,transform .35s var(--ease)}
+.sec:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+.ic{width:20px;height:20px;flex:0 0 auto}
+.meta{margin-top:12px;font-size:13px;color:rgba(255,255,255,.5);min-height:18px;animation:fade 1s ease .7s both}
+.note{margin-top:16px;max-width:520px;font-size:14px;line-height:1.55;color:#FFD7A8;background:rgba(255,170,60,.12);border:1px solid rgba(255,170,60,.25);border-radius:14px;padding:12px 14px}
+
+.glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:22px;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.qr{width:236px;flex:0 0 236px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;margin-top:12px;animation:up .9s var(--ease) .6s both}
+.qr-box{width:176px;height:176px;padding:10px;background:#fff;border-radius:16px;animation:ring 1.6s ease-out 1.3s 2}
+.qr-box svg,.qr-box img{width:100%;height:100%;display:block}
+.qr p{margin:0;font-size:13px;line-height:1.45;color:rgba(255,255,255,.75)}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(59,123,255,.6)}100%{box-shadow:0 0 0 20px rgba(59,123,255,0)}}
+
+.how{margin-top:44px;padding:22px;animation:up .9s var(--ease) .75s both}
+.how-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.how-top h2{margin:0 auto 0 0;font-size:18px;font-weight:700}
+.tab{height:38px;padding:0 16px;border-radius:19px;font-size:13px;font-weight:600;background:rgba(255,255,255,.08);transition:background .25s,color .25s}
+.tab[aria-selected=true]{background:#fff;color:#14233F}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.step{background:rgba(255,255,255,.05);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;animation:up .55s var(--ease) both}
+.step:nth-child(2){animation-delay:.08s}.step:nth-child(3){animation-delay:.16s}
+.ill{height:104px;border-radius:12px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ill .arrow{width:44px;height:44px;color:var(--soft);animation:bob 1.6s ease-in-out infinite}
+.ill.smart{background:#0F5BBF;align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:6px;padding:12px;font-size:11px;font-weight:700;color:#fff;text-align:left}
+.ill.smart u{font-weight:500}
+.ill .press{position:absolute;right:10px;bottom:10px;font-size:10px;font-weight:600;background:#fff;color:#0F5BBF;padding:5px 9px;border-radius:4px;animation:tap 2.4s ease-in-out infinite}
+.ill.perm{flex-direction:column;gap:8px;padding:0 16px;font-size:11px;color:rgba(255,255,255,.8);text-align:center}
+.ill.perm b{color:var(--soft);animation:tap 2.4s ease-in-out infinite;display:inline-block}
+.ill img{width:56px;height:56px;border-radius:15px}
+.step h3{margin:0;font-size:14px;font-weight:600;display:flex;gap:8px;align-items:center}
+.step h3 i{font-style:normal;flex:0 0 24px;height:24px;border-radius:12px;background:rgba(59,123,255,.25);color:var(--soft);font-size:12px;display:flex;align-items:center;justify-content:center}
+.step p{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes tap{0%,60%,100%{transform:scale(1)}70%{transform:scale(.88)}}
+
+.news{margin-top:16px;padding:18px 22px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.75);animation:up .9s var(--ease) .85s both}
+.news h2{margin:0 0 6px;font-size:15px;color:#fff}
+.news ul{margin:0;padding-left:18px}
+footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.35)}
+
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.35)}100%{transform:scale(1)}}
+
+@media (max-width:820px){
+  .wrap{padding-top:56px}
+  .hero{flex-direction:column;align-items:center;text-align:center}
+  .actions{justify-content:center;flex-direction:column;align-items:stretch}
+  .qr{display:none}
+  .steps{grid-template-columns:1fr}
+  .step{flex-direction:row;align-items:center}
+  .ill{flex:0 0 96px;height:80px}
+  .ill.smart,.ill.perm{padding:8px;font-size:9px;gap:4px}
+  .ill .press{font-size:8px;padding:3px 5px;right:6px;bottom:6px}
+  .sec{height:50px;background:none;border-color:transparent;color:var(--soft)}
+  .note{margin-inline:auto;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="main">
+      <div class="word"><span>sapfir</span><i class="dot"></i></div>
+      <div class="by">by <b>Neon</b></div>
+      <h1>Админ.панель сайта sapfirshow.kz</h1>
+      <p class="lead">Участницы, фото, видео, тексты и контакты — меняйте сайт с компьютера или телефона.</p>
+
+      <div class="actions">
+        <a class="pri" id="primary" href="#">
+          <svg class="ic" id="pIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+          <span id="pText">Скачать</span>
+        </a>
+        <a class="sec" id="secondary" href="#"><span id="sText">Android</span></a>
+      </div>
+      <div class="meta" id="meta"></div>
+      <div class="note" id="note" hidden></div>
+    </div>
+
+    <aside class="qr glass" id="qr">
+      <div class="qr-box" id="qrBox" aria-label="QR-код для скачивания на телефон"></div>
+      <p>Наведите камеру телефона — скачается версия для Android</p>
+    </aside>
+  </section>
+
+  <section class="how glass">
+    <div class="how-top">
+      <h2>Как установить</h2>
+      <button class="tab" id="tWin" role="tab" aria-selected="true">Windows</button>
+      <button class="tab" id="tAnd" role="tab" aria-selected="false">Android</button>
+    </div>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <section class="news glass" id="news" hidden>
+    <h2 id="newsTitle">Что нового</h2>
+    <div id="newsBody"></div>
+  </section>
+
+  <footer>Приложение только для администраторов сайта. Вход — по паролю администратора.</footer>
+</main>
+
+<template id="stepsWin">
+  <div class="step"><div class="ill"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/></svg></div><div><h3><i>1</i>Скачайте файл</h3><p>SAPFIR-Windows.exe появится в «Загрузках». Откройте его.</p></div></div>
+  <div class="step"><div class="ill smart">Система Windows защитила ваш компьютер<u>Подробнее</u><span class="press">Выполнить в любом случае</span></div><div><h3><i>2</i>Синее окно — не страшно</h3><p>Нажмите «Подробнее» → «Выполнить в любом случае».</p></div></div>
+  <div class="step"><div class="ill"><img src="icon.png" alt=""></div><div><h3><i>3</i>«Далее» → «Готово»</h3><p>Приложение откроется само. Первый вход — по паролю администратора, дальше ПИН-код.</p></div></div>
+</template>
+<template id="stepsAnd">
+  <div class="step"><div class="ill"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/></svg></div><div><h3><i>1</i>Скачайте APK</h3><p>Кнопкой выше или по QR-коду. Откройте скачанный файл.</p></div></div>
+  <div class="step"><div class="ill perm">Установка из этого источника заблокирована<b>Настройки</b></div><div><h3><i>2</i>Разрешите установку</h3><p>«Настройки» → включите «Разрешить из этого источника» и вернитесь назад.</p></div></div>
+  <div class="step"><div class="ill"><img src="icon.png" alt="" style="border-radius:50%"></div><div><h3><i>3</i>«Установить» → «Открыть»</h3><p>Пароль администратора — один раз, дальше ПИН-код или отпечаток.</p></div></div>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+(function () {
+  // Файлы лежат в GitHub Releases репозитория сайта — имена файлов не меняются от версии к версии.
+  var REPO = 'Neow112/website';
+  var WIN = 'SAPFIR-Windows.exe', APK = 'SAPFIR-Android.apk';
+  var base = 'https://github.com/' + REPO + '/releases/latest/download/';
+  var winUrl = base + WIN, apkUrl = base + APK;
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isMac = !isIOS && /Mac OS X|Macintosh/i.test(ua);
+
+  var WIN_ICON = '<path fill="#1058F5" d="M3 5.5 10 4.5v7H3zM11 4.3 21 3v8.5H11zM3 12.5h7v7l-7-1zM11 12.5h10V21l-10-1.4z"/>';
+  var AND_ICON = '<path fill="#3DDC84" d="M6 10h12v7a1 1 0 0 1-1 1h-1v3h-2v-3h-4v3H8v-3H7a1 1 0 0 1-1-1zM6.5 9a5.5 5.5 0 0 1 11 0z"/>';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var primaryAndroid = isAndroid;
+  $('primary').href = primaryAndroid ? apkUrl : winUrl;
+  $('pIcon').innerHTML = primaryAndroid ? AND_ICON : WIN_ICON;
+  $('pText').textContent = primaryAndroid ? 'Скачать для Android' : 'Скачать для Windows';
+  $('secondary').href = primaryAndroid ? winUrl : apkUrl;
+  $('sText').textContent = primaryAndroid ? 'Версия для Windows' : 'Android';
+
+  var note = $('note');
+  if (isIOS) { note.hidden = false; note.textContent = 'Для iPhone и iPad приложения нет. Откройте эту страницу на компьютере с Windows или на телефоне Android.'; }
+  else if (isMac) { note.hidden = false; note.textContent = 'Приложение работает на Windows. На Mac его не установить — откройте страницу на компьютере с Windows или на телефоне Android.'; }
+
+  // шаги установки
+  function show(which) {
+    var win = which === 'win';
+    $('tWin').setAttribute('aria-selected', win); $('tAnd').setAttribute('aria-selected', !win);
+    var steps = $('steps'); steps.innerHTML = '';
+    steps.appendChild($(win ? 'stepsWin' : 'stepsAnd').content.cloneNode(true));
+  }
+  $('tWin').onclick = function () { show('win'); };
+  $('tAnd').onclick = function () { show('and'); };
+  show(isAndroid ? 'and' : 'win');
+
+  // QR-код на скачивание APK (виден только на компьютере)
+  try {
+    var qr = qrcode(0, 'M'); qr.addData(apkUrl); qr.make();
+    $('qrBox').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  } catch (e) { $('qr').hidden = true; }
+
+  // версия, размер и «что нового» — из последнего выпуска на GitHub
+  function mb(b) { return Math.round(b / 1048576) + ' МБ'; }
+  function date(s) {
+    var m = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+    var d = new Date(s); return d.getDate() + ' ' + m[d.getMonth()] + ' ' + d.getFullYear();
+  }
+  fetch('https://api.github.com/repos/' + REPO + '/releases/latest').then(function (r) { return r.ok ? r.json() : null; }).then(function (rel) {
+    if (!rel) return;
+    var sizes = {};
+    (rel.assets || []).forEach(function (a) { sizes[a.name] = a.size; });
+    var name = primaryAndroid ? APK : WIN;
+    var parts = [rel.name || rel.tag_name];
+    if (sizes[name]) parts.push(mb(sizes[name]));
+    parts.push(primaryAndroid ? 'Android 8 и новее' : 'Windows 10 и 11');
+    if (rel.published_at) parts.push(date(rel.published_at));
+    $('meta').textContent = parts.join(' · ');
+    if (rel.body && rel.body.trim()) {
+      var lines = rel.body.trim().split(/\r?\n/).map(function (l) { return l.replace(/^[-*•]\s*/, '').trim(); }).filter(Boolean);
+      var ul = document.createElement('ul');
+      lines.forEach(function (l) { var li = document.createElement('li'); li.textContent = l; ul.appendChild(li); });
+      $('newsBody').appendChild(ul); $('news').hidden = false;
+    }
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>
