@@ -118,16 +118,6 @@
       }
     },
     {
-      "id": "araylym",
-      "name": "Арайлым",
-      "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
-        "h": 1536
-      }
-    },
-    {
       "id": "mira",
       "name": "Мира",
       "photo": {
@@ -139,6 +129,16 @@
       "focus": {
         "x": 49,
         "y": 39
+      }
+    },
+    {
+      "id": "araylym",
+      "name": "Арайлым",
+      "photo": {
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
       }
     },
     {
