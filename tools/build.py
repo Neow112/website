@@ -129,10 +129,10 @@ def render_videos(c, lang, L, p):
         cards.append('<a class="film-play" href="%s" target="_blank" rel="noopener noreferrer" data-open-video data-platform="%s" aria-label="%s">'
                      '<picture><source srcset="%s" sizes="%s" type="%s">'
                      '<img src="%simages/%s.jpg" width="%d" height="%d" alt="%s" loading="lazy" decoding="async"></picture>'
-                     '<span class="film-shade"></span><span class="play-orb"><svg class="icon"><use href="#i-play"/></svg></span>%s'
+                     '<span class="film-shade"></span><span class="play-orb"><svg class="icon"><use href="#i-play"/></svg><span class="play-label" aria-hidden="true">%s</span></span>%s'
                      '<span class="film-corner"><svg class="icon"><use href="#i-arrow"/></svg></span></a>'
                      % (esc(v['url']), video_platform(v['url']), esc(label), srcset, sizes, mime,
-                        p, b, cv['w'], cv['h'], esc(title or L['video_alt']), cap))
+                        p, b, cv['w'], cv['h'], esc(title or L['video_alt']), esc(L.get('play', '')), cap))
     out = '<div class="film-stage reveal%s" data-count="%d"><div class="film-track">%s</div>' % (' is-carousel' if car else '', n, ''.join(cards))
     if car:
         out += ('<div class="film-controls"><span class="film-progress" aria-hidden="true"><i></i></span><span class="film-arrows">'

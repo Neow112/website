@@ -22,10 +22,10 @@
   <link rel="preload" href="../assets/fonts/manrope-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="../images/hero-desktop-1659.webp" as="image" type="image/webp" media="(min-width: 761px)">
   <link rel="preload" href="../images/hero-mobile-640.webp" as="image" type="image/webp" media="(max-width: 760px)" imagesrcset="../images/hero-mobile-640.webp 640w, ../images/hero-mobile-1024.webp 1024w" imagesizes="100vw">
-  <link rel="stylesheet" href="../assets/site.css?v=show1">
+  <link rel="stylesheet" href="../assets/site.css?v=all1">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "PerformingGroup", "@id": "https://sapfirshow.kz/#ensemble", "name": "SAPFIR", "url": "https://sapfirshow.kz/", "description": "Алматыдағы SAPFIR би ансамблі. Заманауи би, этно-фьюжн және сахналық шоу. Ансамбльмен танысып, өнер көрсетуін тамашалаңыз және іс-шараңызға шақырыңыз.", "image": "https://sapfirshow.kz/images/gallery1.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Алматы", "addressCountry": "KZ"}, "sameAs": ["https://www.instagram.com/sapfir_showballet/", "https://www.tiktok.com/@showballet_sapfir"], "contactPoint": [{"@type": "ContactPoint", "telephone": "+77712814246", "contactType": "booking", "availableLanguage": ["ru", "kk", "ug"]}, {"@type": "ContactPoint", "telephone": "+77052658643", "contactType": "booking", "availableLanguage": ["ru", "kk", "ug"]}]}</script>
   <script type="application/json" id="site-strings">{"menu_open": "Мәзірді ашу", "menu_close": "Мәзірді жабу", "motion_pause": "Анимацияны тоқтату", "motion_resume": "Анимацияны қосу", "motion_system": "Анимация құрылғы баптауларында өшірілген", "zoom": "Суретті үлкейту", "zoom_out": "Суретті кішірейту", "whatsapp_intro": "Сәлеметсіз бе! SAPFIR ансамблін іс-шарамызға шақырғымыз келеді.", "whatsapp_end": "Бос күндер мен өнер көрсету бағасын айтып жіберіңізші.", "date": "Іс-шара күні", "event_city": "Қала", "event_type": "Іс-шараңыз", "message": "Тілектеріңіз", "photo_error": "Сурет жүктелмеді. Түпнұсқаны ашыңыз.", "open_photo": "Суретті ашу", "watch": "Өнер көрсетуді көру", "video_fallback": "Жүктелмеді ме? {p} сайтында ашу ↗", "locale": "kk-KZ"}</script>
-  <script src="../assets/site.js?v=show1" defer></script>
+  <script src="../assets/site.js?v=all1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Мазмұнға өту</a>
@@ -60,7 +60,7 @@
         <img src="../images/hero-desktop-1659.webp" srcset="../images/hero-desktop-1200.webp 1200w, ../images/hero-desktop-1659.webp 1659w" sizes="100vw" width="1659" height="925" alt="" fetchpriority="high" decoding="async">
       </picture>
       <div class="hero-content">
-        <h1 id="hero-title"><span>{{t:hero_title_1}}</span><span>{{t:hero_title_2}}</span></h1>
+        <h1 id="hero-title"><span><span>{{t:hero_title_1}}</span></span><span><span>{{t:hero_title_2}}</span></span></h1>
         <p class="hero-description">{{t:hero_subtitle}}</p>
         <a class="button button-blue hero-watch" href="#films">{{t:hero_button}} <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
@@ -72,7 +72,7 @@
           <source media="(max-width:760px)" srcset="../images/intro-mobile-hq-1280.webp 1280w, ../images/intro-mobile-hq-1920.webp 1920w, ../images/intro-mobile-hq-2560.webp 2560w" sizes="(max-width:760px) 115vw, 100vw">
           <img src="../images/intro-2048.webp" srcset="../images/intro-1200.webp 1200w, ../images/intro-2048.webp 2048w" sizes="100vw" width="2048" height="683" alt="SAPFIR ансамблінің төрт қатысушысы сахналық киімде" loading="eager" decoding="async">
         </picture>
-        <h2 id="intro-title"><span>{{t:intro_greeting}}</span><strong>SAPFIR</strong></h2>
+        <h2 id="intro-title"><span>{{t:intro_greeting}}</span><strong><span>SAPFIR</span></strong></h2>
         <span class="intro-right"><span class="intro-motto">{{t:intro_motto}}</span><span class="circle"><svg class="icon"><use href="#i-next"/></svg></span></span>
       </a>
     </section>
@@ -81,19 +81,19 @@
       <div class="team-grid">{{@members}}</div>
     </section>
     <section class="film-section section" id="films"{{@films_hidden}} aria-labelledby="film-title">
-      <div class="container"><div class="section-head reveal"><div><h2 id="film-title">{{t:show_title_1}}<br><span class="soft-text">{{t:show_title_2}}</span></h2></div><p>{{t:show_text}}</p></div>
+      <div class="container"><div class="section-head reveal"><div><h2 id="film-title"><span class="ln"><span>{{t:show_title_1}}</span></span><span class="ln"><span class="soft-text">{{t:show_title_2}}</span></span></h2></div><p>{{t:show_text}}</p></div>
         {{@videos}}
       </div>
     </section>
     <section class="gallery-section section container" id="gallery" aria-labelledby="gallery-title">
-      <div class="section-head reveal"><div><h2 id="gallery-title">{{t:gallery_title_1}}<br><span class="soft-text">{{t:gallery_title_2}}</span></h2></div><p>{{t:gallery_text}}</p></div>
+      <div class="section-head reveal"><div><h2 id="gallery-title"><span class="ln"><span>{{t:gallery_title_1}}</span></span><span class="ln"><span class="soft-text">{{t:gallery_title_2}}</span></span></h2></div><p>{{t:gallery_text}}</p></div>
       <div class="gallery-grid">{{@gallery}}</div>
       <p class="gallery-note">Суретті жақыннан көру үшін басыңыз.</p>
     </section>
     <section class="contact-section section" id="contact" aria-labelledby="contact-title">
       <div class="contact-ribbon" aria-hidden="true"><img src="../images/ribbon-red.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></div>
       <div class="container contact-grid">
-        <div class="contact-copy reveal"><div class="eyebrow">{{t:contact_label}}</div><h2 id="contact-title">{{t:contact_title_1}}<br><span class="blue-text">{{t:contact_title_2}}</span></h2><p class="lead">{{t:contact_text}}</p><div class="contact-socials">{{@socials}}</div></div>
+        <div class="contact-copy reveal"><div class="eyebrow">{{t:contact_label}}</div><h2 id="contact-title"><span class="ln"><span>{{t:contact_title_1}}</span></span><span class="ln"><span class="blue-text">{{t:contact_title_2}}</span></span></h2><p class="lead">{{t:contact_text}}</p><div class="contact-socials">{{@socials}}</div></div>
         <div class="contact-details reveal">
           <div class="direct-contacts"><span class="small-label">Бізбен байланысыңыз</span>{{@phones}}</div>
         </div>

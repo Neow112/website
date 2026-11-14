@@ -197,3 +197,151 @@ html.motion-paused{scroll-behavior:auto}.motion-paused *,.motion-paused *:before
   .film-controls{margin-top:16px}
 }
 @media(prefers-reduced-motion:reduce){.is-carousel .film-track{scroll-behavior:auto}.film-progress i{transition:none}}
+
+/* Первый экран — «Мягкий вход»: фото проявляется из размытия, строки заголовка выезжают снизу, шапка опускается, полоска прорисовывается */
+.hero h1>span{padding-bottom:.12em;margin-bottom:-.12em;clip-path:inset(-.3em -100vw 0 -100vw)}
+.hero h1>span>span{display:block}
+@keyframes hero-focus{from{opacity:.3;filter:blur(14px);scale:1.08}to{opacity:1;filter:blur(0);scale:1}}
+@keyframes hero-rise{from{transform:translateY(150%)}to{transform:none}}
+@keyframes hero-fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes hero-drop{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+@keyframes hero-bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){
+.hero-art{animation:hero-focus 1.6s cubic-bezier(.1,.9,.2,1) backwards}
+.hero h1>span>span{animation:hero-rise 1s cubic-bezier(.1,.9,.2,1) backwards}
+.hero h1>span:nth-child(1)>span{animation-delay:.45s}
+.hero h1>span:nth-child(2)>span{animation-delay:.58s}
+.hero-description{animation:hero-fade-up .9s .8s cubic-bezier(.1,.9,.2,1) backwards}
+.hero-watch{animation:hero-fade-up .9s .95s cubic-bezier(.1,.9,.2,1) backwards}
+.site-header{animation:hero-drop .9s .25s cubic-bezier(.1,.9,.2,1) backwards}
+.scene-mark i:first-child{transform-origin:left;animation:hero-bar 1.2s 1.1s cubic-bezier(.1,.9,.2,1) backwards}
+}
+.motion-paused .hero-art,.motion-paused .hero h1>span>span,.motion-paused .hero-description,.motion-paused .hero-watch,.motion-paused .site-header,.motion-paused .scene-mark i{animation:none}
+
+/* «Знакомьтесь»: фото раскрывается из рамки, SAPFIR поднимается из-под строки (один раз при появлении на экране). */
+.intro-card h2 strong{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.intro-card h2 strong>span{display:block}
+.intro-card .circle{transition:transform .5s var(--ease),background .3s,color .3s}
+.intro-card:hover .circle{background:var(--blue);color:#fff;transform:translateX(6px)}
+@media(hover:hover) and (min-width:761px){.intro-card:hover img{transform:scale(1.06) translateX(-1%);transition:transform 6s linear}}
+@keyframes intro-clip{from{clip-path:inset(7% 9% round 24px)}to{clip-path:inset(0 round 24px)}}
+@keyframes intro-clip-m{from{clip-path:inset(8% 10% round 13px)}to{clip-path:inset(0 round 13px)}}
+@keyframes intro-zoom{from{transform:scale(1.14)}to{transform:none}}
+@keyframes intro-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes intro-rise{from{transform:translateY(110%)}to{transform:none}}
+@keyframes intro-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+html.motion-ready:not(.motion-paused) .intro-card:not(.visible){clip-path:inset(7% 9% round 24px)}
+html.motion-ready:not(.motion-paused) .intro-card:not(.visible) h2>span,html.motion-ready:not(.motion-paused) .intro-card:not(.visible) .intro-motto,html.motion-ready:not(.motion-paused) .intro-card:not(.visible) .circle{opacity:0}
+html.motion-ready:not(.motion-paused) .intro-card:not(.visible) h2 strong>span{transform:translateY(110%)}
+.intro-card.visible{animation:intro-clip 1.2s var(--ease) backwards}
+.intro-card.visible img{animation:intro-zoom 1.8s var(--ease) backwards}
+.intro-card.visible h2>span{animation:intro-up .8s .4s var(--ease) backwards}
+.intro-card.visible h2 strong>span{animation:intro-rise 1s .5s var(--ease) backwards}
+.intro-card.visible .intro-motto{animation:intro-up .8s .8s var(--ease) backwards}
+.intro-card.visible .circle{animation:intro-pop .6s 1.1s cubic-bezier(.34,1.56,.64,1) backwards}
+}
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+html.motion-ready:not(.motion-paused) .intro-card:not(.visible){clip-path:inset(8% 10% round 13px)}
+.intro-card.visible{animation-name:intro-clip-m}
+}
+
+/* «Участницы»: карточки вырастают снизу волной, лесенка, имя с линией при наведении. */
+@media(min-width:761px){.team-card:nth-child(4n+2),.team-card:nth-child(4n+4){padding-top:32px}.person-info h3{font-size:20px;letter-spacing:-.03em}}
+@media(max-width:760px){.team-card:nth-child(even){padding-top:25px}}
+.person-info h3{display:inline-block;position:relative}
+.person-info h3:after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.team-card:hover .person-info h3:after{transform:scaleX(1)}
+.team-card:nth-child(4n+2){--d:.09s}.team-card:nth-child(4n+3){--d:.18s}.team-card:nth-child(4n+4){--d:.27s}
+@media(max-width:760px){.team-card:nth-child(n){--d:0s}.team-card:nth-child(even){--d:.1s}}
+@keyframes team-grow{from{clip-path:inset(100% 0 0 0 round 22px)}to{clip-path:inset(0 round 22px)}}
+@keyframes team-grow-m{from{clip-path:inset(100% 0 0 0 round 16px)}to{clip-path:inset(0 round 16px)}}
+@media(prefers-reduced-motion:no-preference){
+html.motion-ready:not(.motion-paused) .team-card.reveal:not(.visible){opacity:1;transform:none}
+html.motion-ready:not(.motion-paused) .team-card:not(.visible) .portrait{clip-path:inset(100% 0 0 0 round 22px)}
+html.motion-ready:not(.motion-paused) .team-card:not(.visible) .person-info{opacity:0}
+.team-card.visible .portrait{animation:team-grow 1s cubic-bezier(.65,0,.25,1) backwards;animation-delay:var(--d,0s)}
+.team-card.visible .portrait img{animation:intro-zoom 1.4s var(--ease) backwards;animation-delay:var(--d,0s)}
+.team-card.visible .person-info{animation:intro-up .7s var(--ease) backwards;animation-delay:calc(var(--d,0s) + .45s)}
+}
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){.team-card.visible .portrait{animation-name:team-grow-m}}
+
+/* «Шоу»: кинозал — чёрные полосы расходятся, кнопка «дышит», при наведении раскрывается в «Смотреть». */
+.film-play:before,.film-play:after{content:'';position:absolute;left:0;right:0;height:50.5%;background:#05080f;z-index:3;pointer-events:none;transform:scaleY(0)}
+.film-play:before{top:0;transform-origin:top}.film-play:after{bottom:0;transform-origin:bottom}
+.play-orb{position:relative}
+.play-orb>.icon{position:relative;z-index:1}
+.play-label{position:absolute;left:50%;top:0;height:100%;display:flex;align-items:center;padding:0 26px 0 calc(50% + 14px);border-radius:999px;background:#fff;color:var(--ink);font-size:17px;letter-spacing:-.02em;white-space:nowrap;z-index:0;clip-path:inset(0 100% 0 0 round 999px);transition:clip-path .55s var(--ease)}
+.play-orb:before,.play-orb:after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #ffffffcc;opacity:0;pointer-events:none}
+@media(hover:hover) and (min-width:761px){.film-play:hover .play-orb{transform:none;background:#fff}.film-play:hover .play-label{clip-path:inset(0 0 0 0 round 999px)}}
+@keyframes film-bars{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+@keyframes film-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+@keyframes film-dlg{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes film-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+html.motion-ready:not(.motion-paused) .film-stage.reveal:not(.visible){opacity:1;transform:none}
+html.motion-ready:not(.motion-paused) .film-stage:not(.visible) .film-play:before,html.motion-ready:not(.motion-paused) .film-stage:not(.visible) .film-play:after{transform:scaleY(1)}
+html.motion-ready:not(.motion-paused) .film-stage:not(.visible) .play-orb,html.motion-ready:not(.motion-paused) .film-stage:not(.visible) .film-corner,html.motion-ready:not(.motion-paused) .film-stage:not(.visible) .film-caption{opacity:0}
+.film-stage.visible .film-play:before,.film-stage.visible .film-play:after{animation:film-bars 1.1s .15s cubic-bezier(.76,0,.24,1) backwards}
+.film-stage.visible .film-play img{animation:intro-zoom 1.9s .15s var(--ease) backwards}
+.film-stage.visible .play-orb{animation:intro-pop .7s 1.05s cubic-bezier(.34,1.56,.64,1) backwards}
+.film-stage.visible .film-corner,.film-stage.visible .film-caption{animation:intro-up .7s 1.2s var(--ease) backwards}
+.film-stage.visible .play-orb:before{animation:film-ring 2.6s 1.8s cubic-bezier(.22,.8,.25,1) infinite}
+.film-stage.visible .play-orb:after{animation:film-ring 2.6s 3.1s cubic-bezier(.22,.8,.25,1) infinite}
+.film-play:hover .play-orb:before,.film-play:hover .play-orb:after{animation:none}
+.video-dialog[open]{animation:film-dlg .5s var(--ease)}
+.video-dialog[open]::backdrop{animation:film-fade .35s ease}
+}
+html.page-hidden .play-orb:before,html.page-hidden .play-orb:after{animation-play-state:paused}
+
+/* Заголовки разделов: строки поднимаются из-под линии. */
+h2 .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+h2 .ln>span{display:block}
+
+/* «Галерея»: фото вырастают снизу волной, как карточки участниц. */
+.gallery-item:nth-child(3n+2){--d:.1s}.gallery-item:nth-child(3n+3){--d:.2s}
+@media(max-width:760px){.gallery-item:nth-child(n){--d:0s}.gallery-item:nth-child(even){--d:.1s}}
+@keyframes gal-grow{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+.gallery-item picture{display:block;width:100%;height:100%}
+
+/* «Контакты»: телефоны и соцсети появляются по очереди, кнопка звонка оживает. */
+.phone-call{transition:background .25s,color .25s,transform .4s var(--ease)}
+.phone-call:hover{background:var(--blue);color:#fff;transform:rotate(-12deg)}
+.phone-row>a:first-child{transition:color .25s}
+.phone-row>a:first-child .icon{transition:color .25s,transform .4s var(--ease)}
+.phone-row>a:first-child:hover .icon{color:#25d366;transform:scale(1.15)}
+.contact-socials a .icon{transition:transform .4s var(--ease)}
+.contact-socials a:hover .icon{transform:translate(3px,-3px)}
+
+/* Просмотр фото: окно мягко увеличивается, фото листаются со сдвигом. */
+@keyframes ph-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes ph-next{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes ph-prev{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:none}}
+.lightbox-image-wrap img.swap-wait{opacity:0}
+
+@media(prefers-reduced-motion:no-preference){
+html.motion-ready:not(.motion-paused) .reveal:not(.visible) h2 .ln>span{transform:translateY(110%)}
+.reveal.visible h2 .ln>span{animation:intro-rise 1s .1s var(--ease) backwards}
+.reveal.visible h2 .ln+.ln>span{animation-delay:.22s}
+html.motion-ready:not(.motion-paused) .gallery-item.reveal:not(.visible){opacity:1;transform:none}
+html.motion-ready:not(.motion-paused) .gallery-item:not(.visible) picture{clip-path:inset(100% 0 0 0)}
+.gallery-item.visible picture{animation:gal-grow 1s cubic-bezier(.65,0,.25,1) backwards;animation-delay:var(--d,0s)}
+.gallery-item.visible img{animation:intro-zoom 1.4s var(--ease) backwards;animation-delay:var(--d,0s)}
+html.motion-ready:not(.motion-paused) .contact-copy:not(.visible) .lead,html.motion-ready:not(.motion-paused) .contact-copy:not(.visible) .contact-socials a,html.motion-ready:not(.motion-paused) .contact-details:not(.visible) .small-label,html.motion-ready:not(.motion-paused) .contact-details:not(.visible) .phone-row{opacity:0}
+.contact-copy.visible .lead{animation:intro-up .8s .4s var(--ease) backwards}
+.contact-copy.visible .contact-socials a{animation:intro-up .7s .55s var(--ease) backwards}
+.contact-copy.visible .contact-socials a+a{animation-delay:.65s}
+.contact-copy.visible .contact-socials a+a+a{animation-delay:.75s}
+.contact-details.visible .small-label{animation:intro-up .7s .2s var(--ease) backwards}
+.contact-details.visible .phone-row{animation:intro-up .7s .3s var(--ease) backwards}
+.contact-details.visible .phone-row+.phone-row{animation-delay:.42s}
+.contact-details.visible .phone-row+.phone-row+.phone-row{animation-delay:.54s}
+.lightbox[open]{animation:film-dlg .45s var(--ease)}
+.lightbox[open]::backdrop{animation:film-fade .35s ease}
+.lightbox-image-wrap img.swap-in{animation:ph-in .45s var(--ease)}
+.lightbox-image-wrap img.swap-next{animation:ph-next .45s var(--ease)}
+.lightbox-image-wrap img.swap-prev{animation:ph-prev .45s var(--ease)}
+}
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+.lightbox[open]{animation:film-fade .35s ease}
+}
