@@ -128,16 +128,6 @@
       }
     },
     {
-      "id": "tamilla",
-      "name": "Тамилла",
-      "photo": {
-        "src": "tamilla.webp",
-        "full": "tamilla.jpg",
-        "w": 1536,
-        "h": 1027
-      }
-    },
-    {
       "id": "yasmina",
       "name": "Ясмина",
       "photo": {
@@ -179,6 +169,16 @@
       "focus": {
         "x": 49,
         "y": 35
+      }
+    },
+    {
+      "id": "tamilla",
+      "name": "Тамилла",
+      "photo": {
+        "src": "tamilla.webp",
+        "full": "tamilla.jpg",
+        "w": 1536,
+        "h": 1027
       }
     }
   ],
