@@ -132,16 +132,6 @@
       }
     },
     {
-      "id": "araylym",
-      "name": "Арайлым",
-      "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
-        "h": 1536
-      }
-    },
-    {
       "id": "sabrina",
       "name": "Сабрина",
       "photo": {
@@ -159,6 +149,16 @@
         "full": "tamilla.jpg",
         "w": 1536,
         "h": 1027
+      }
+    },
+    {
+      "id": "araylym",
+      "name": "Арайлым",
+      "photo": {
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
       }
     },
     {
