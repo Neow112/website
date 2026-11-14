@@ -63,18 +63,56 @@ h1{margin:28px 0 0;font-size:clamp(22px,3.2vw,28px);font-weight:600;letter-spaci
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
 .step{background:rgba(255,255,255,.05);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;animation:up .55s var(--ease) both}
 .step:nth-child(2){animation-delay:.08s}.step:nth-child(3){animation-delay:.16s}
-.ill{height:104px;border-radius:12px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.ill .arrow{width:44px;height:44px;color:var(--soft);animation:bob 1.6s ease-in-out infinite}
-.ill.smart{background:#0F5BBF;align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:6px;padding:12px;font-size:11px;font-weight:700;color:#fff;text-align:left}
-.ill.smart u{font-weight:500}
-.ill .press{position:absolute;right:10px;bottom:10px;font-size:10px;font-weight:600;background:#fff;color:#0F5BBF;padding:5px 9px;border-radius:4px;animation:tap 2.4s ease-in-out infinite}
-.ill.perm{flex-direction:column;gap:8px;padding:0 16px;font-size:11px;color:rgba(255,255,255,.8);text-align:center}
-.ill.perm b{color:var(--soft);animation:tap 2.4s ease-in-out infinite;display:inline-block}
+.ill{height:170px;border-radius:14px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .ill img{width:56px;height:56px;border-radius:15px}
-.step h3{margin:0;font-size:14px;font-weight:600;display:flex;gap:8px;align-items:center}
-.step h3 i{font-style:normal;flex:0 0 24px;height:24px;border-radius:12px;background:rgba(59,123,255,.25);color:var(--soft);font-size:12px;display:flex;align-items:center;justify-content:center}
+.step h3{margin:0;font-size:15px;font-weight:600;display:flex;gap:10px;align-items:center}
+.step h3 i{font-style:normal;flex:0 0 26px;height:26px;border-radius:13px;background:rgba(59,123,255,.25);color:var(--soft);font-size:12px;display:flex;align-items:center;justify-content:center}
 .step p{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62)}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+/* мини-сцены */
+.file{width:min(250px,86%);background:#fff;border-radius:12px;padding:11px 12px;color:#14233F;display:flex;gap:10px;align-items:center;animation:hl 5s infinite,clk 5s infinite}
+.file .ext{width:32px;height:32px;flex:0 0 32px;border-radius:8px;background:#14233F;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center}
+.file b{display:block;font-size:11px}
+.file em{display:block;font-style:normal;font-size:10px;font-weight:700;color:#1058F5;margin-top:4px;animation:dlText 5s infinite}
+.track{height:4px;border-radius:2px;background:#E3EAF6;overflow:hidden;margin-top:5px}
+.track i{display:block;height:4px;width:0;background:#1058F5;animation:dl 5s infinite}
+.cur{position:absolute;width:18px;height:18px;right:28%;bottom:22%;animation:cur 5s infinite}
+.smart{position:absolute;inset:0;background:#0F5BBF;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:700;text-align:left}
+.smart u{font-size:12px;font-weight:500}
+.smart span{position:absolute;right:14px;bottom:14px;font-size:12px;background:#fff;color:#0F5BBF;padding:7px 12px;border-radius:4px;animation:tap 2.4s ease-in-out infinite}
+.inst{width:min(260px,88%);background:#fff;border-radius:8px;overflow:hidden;color:#1B1B1F;box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:11px;text-align:left}
+.inst .t{display:flex;align-items:center;gap:6px;padding:6px 8px;font-size:10px;border-bottom:1px solid #EEF1F6}
+.inst .t img{width:12px;height:12px;border-radius:3px}
+.inst .b{padding:12px;display:flex;flex-direction:column;gap:9px}
+.inst .bar{height:6px;border-radius:3px;background:#E3EAF6;overflow:hidden}
+.inst .bar i{display:block;height:6px;width:0;background:#1058F5;animation:bar 5s infinite}
+.inst .ck{display:flex;align-items:center;gap:6px}
+.inst .ck i{width:14px;height:14px;border-radius:3px;background:#1058F5;display:flex;align-items:center;justify-content:center;animation:chk 5s infinite}
+.inst .f{display:flex;justify-content:flex-end;padding:0 12px 10px}
+.inst .f span{font-size:10px;padding:4px 14px;border:1px solid #1058F5;border-radius:3px;animation:done 5s infinite}
+.perm{width:min(260px,88%);background:#1F2A3D;border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;font-size:12px;line-height:1.4;text-align:left}
+.sw{flex:0 0 40px;height:22px;border-radius:11px;padding:2px;animation:sw 5s infinite}
+.sw i{display:block;width:18px;height:18px;border-radius:9px;background:#fff;animation:knob 5s infinite}
+.dlg{position:relative;width:min(240px,86%);height:120px;background:#fff;border-radius:18px;color:#14233F;padding:14px;text-align:left}
+.dlg .who{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700}
+.dlg .who img{width:30px;height:30px;border-radius:15px}
+.dlg small{display:block;font-size:11px;color:#5F6470;margin-top:8px}
+.dlg .row{position:absolute;left:14px;right:14px;bottom:14px;height:28px}
+.dlg .row b{position:absolute;right:0;bottom:0;font-size:12px;color:#1058F5;animation:inst 5s infinite}
+.dlg .row i{position:absolute;left:0;bottom:10px;height:4px;border-radius:2px;background:#1058F5;animation:prog 5s infinite}
+.dlg .row span{position:absolute;right:0;bottom:0;font-size:12px;font-weight:700;color:#fff;background:#1058F5;padding:6px 14px;border-radius:14px;animation:open 5s infinite}
+@keyframes dl{0%,8%{width:0}45%,100%{width:100%}}
+@keyframes dlText{0%,44%{opacity:0}50%,100%{opacity:1}}
+@keyframes cur{0%,50%{transform:translate(60px,50px);opacity:0}60%{opacity:1}72%,100%{transform:none;opacity:1}}
+@keyframes clk{0%,74%{transform:scale(1)}78%{transform:scale(.92)}84%,100%{transform:scale(1)}}
+@keyframes hl{0%,74%{background:#fff}78%,100%{background:#E3EAF6}}
+@keyframes bar{0%,10%{width:0}60%,100%{width:100%}}
+@keyframes chk{0%,62%{opacity:0;transform:scale(.4)}70%,100%{opacity:1;transform:none}}
+@keyframes done{0%,72%{box-shadow:0 0 0 0 rgba(16,88,245,0)}80%{box-shadow:0 0 0 6px rgba(16,88,245,.35)}90%,100%{box-shadow:0 0 0 0 rgba(16,88,245,0)}}
+@keyframes sw{0%,40%{background:#5A6476}55%,100%{background:#3B7BFF}}
+@keyframes knob{0%,40%{transform:none}55%,100%{transform:translateX(18px)}}
+@keyframes inst{0%,30%{opacity:1}36%,100%{opacity:0}}
+@keyframes prog{0%,34%{opacity:0;width:0}38%{opacity:1;width:0}70%{width:100%;opacity:1}74%,100%{opacity:0;width:100%}}
+@keyframes open{0%,72%{opacity:0;transform:scale(.9)}80%,100%{opacity:1;transform:none}}
 @keyframes tap{0%,60%,100%{transform:scale(1)}70%{transform:scale(.88)}}
 
 .news{margin-top:16px;padding:18px 22px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.75);animation:up .9s var(--ease) .85s both}
@@ -92,10 +130,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.
   .actions{justify-content:center;flex-direction:column;align-items:stretch}
   .qr{display:none}
   .steps{grid-template-columns:1fr}
-  .step{flex-direction:row;align-items:center}
-  .ill{flex:0 0 96px;height:80px}
-  .ill.smart,.ill.perm{padding:8px;font-size:9px;gap:4px}
-  .ill .press{font-size:8px;padding:3px 5px;right:6px;bottom:6px}
+  .ill{height:150px}
   .sec{height:50px;background:none;border-color:transparent;color:var(--soft)}
   .note{margin-inline:auto;text-align:left}
 }
@@ -111,7 +146,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.
       <div class="word"><span>sapfir</span><i class="dot"></i></div>
       <div class="by">by <b>Neon</b></div>
       <h1>Админ.панель сайта sapfirshow.kz</h1>
-      <p class="lead">Участницы, фото, видео, тексты и контакты — меняйте сайт с компьютера или телефона.</p>
+      <p class="lead">Меняйте сайт с компьютера или телефона.</p>
 
       <div class="actions">
         <a class="pri" id="primary" href="#">
@@ -126,7 +161,7 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.
 
     <aside class="qr glass" id="qr">
       <div class="qr-box" id="qrBox" aria-label="QR-код для скачивания на телефон"></div>
-      <p>Наведите камеру телефона — скачается версия для Android</p>
+      <p>Наведите камеру телефона и нажмите «Скачать для Android»</p>
     </aside>
   </section>
 
@@ -144,18 +179,18 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.
     <div id="newsBody"></div>
   </section>
 
-  <footer>Приложение только для администраторов сайта. Вход — по паролю администратора.</footer>
+  <footer>Для входа нужен пароль администратора</footer>
 </main>
 
 <template id="stepsWin">
-  <div class="step"><div class="ill"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/></svg></div><div><h3><i>1</i>Скачайте файл</h3><p>SAPFIR-Windows.exe появится в «Загрузках». Откройте его.</p></div></div>
-  <div class="step"><div class="ill smart">Система Windows защитила ваш компьютер<u>Подробнее</u><span class="press">Выполнить в любом случае</span></div><div><h3><i>2</i>Синее окно — не страшно</h3><p>Нажмите «Подробнее» → «Выполнить в любом случае».</p></div></div>
-  <div class="step"><div class="ill"><img src="icon.png" alt=""></div><div><h3><i>3</i>«Далее» → «Готово»</h3><p>Приложение откроется само. Первый вход — по паролю администратора, дальше ПИН-код.</p></div></div>
+  <div class="step"><div class="ill"><div class="file"><span class="ext">exe</span><div style="flex:1"><b>SAPFIR-Windows.exe</b><div class="track"><i></i></div><em>Открыть файл</em></div></div><svg class="cur" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 8-6 2-3 6z" fill="#fff" stroke="#14233F" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3><i>1</i>Откройте файл</h3><p>Он появится внизу браузера — просто нажмите</p></div>
+  <div class="step"><div class="ill"><div class="smart">Система Windows защитила ваш компьютер<u>Подробнее</u><span>Выполнить в любом случае</span></div></div><h3><i>2</i>Синее окно? Это нормально</h3><p>Жмите «Подробнее», потом «Выполнить в любом случае»</p></div>
+  <div class="step"><div class="ill"><div class="inst"><div class="t"><img src="icon.png" alt="">Установка SAPFIR</div><div class="b"><div class="bar"><i></i></div><div class="ck"><i><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></i>Запустить SAPFIR</div></div><div class="f"><span>Готово</span></div></div></div><h3><i>3</i>Пара кликов — и готово</h3><p>Приложение откроется само</p></div>
 </template>
 <template id="stepsAnd">
-  <div class="step"><div class="ill"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/></svg></div><div><h3><i>1</i>Скачайте APK</h3><p>Кнопкой выше или по QR-коду. Откройте скачанный файл.</p></div></div>
-  <div class="step"><div class="ill perm">Установка из этого источника заблокирована<b>Настройки</b></div><div><h3><i>2</i>Разрешите установку</h3><p>«Настройки» → включите «Разрешить из этого источника» и вернитесь назад.</p></div></div>
-  <div class="step"><div class="ill"><img src="icon.png" alt="" style="border-radius:50%"></div><div><h3><i>3</i>«Установить» → «Открыть»</h3><p>Пароль администратора — один раз, дальше ПИН-код или отпечаток.</p></div></div>
+  <div class="step"><div class="ill"><div class="file" style="border-radius:16px"><span class="ext">apk</span><div style="flex:1"><b>SAPFIR-Android.apk</b><div class="track"><i></i></div><em>Нажмите, чтобы открыть</em></div></div></div><h3><i>1</i>Откройте файл</h3><p>Нажмите на уведомление о загрузке</p></div>
+  <div class="step"><div class="ill"><div class="perm"><span style="flex:1">Разрешить установку из этого источника</span><span class="sw"><i></i></span></div></div><h3><i>2</i>Разрешите установку</h3><p>Включите переключатель и вернитесь назад</p></div>
+  <div class="step"><div class="ill"><div class="dlg"><div class="who"><img src="icon.png" alt="">SAPFIR</div><small>Установить это приложение?</small><div class="row"><b>Установить</b><i></i><span>Открыть</span></div></div></div><h3><i>3</i>«Установить» → «Открыть»</h3><p>Вот и всё!</p></div>
 </template>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
@@ -198,9 +233,10 @@ footer{margin-top:36px;text-align:center;font-size:12px;color:rgba(255,255,255,.
   $('tAnd').onclick = function () { show('and'); };
   show(isAndroid ? 'and' : 'win');
 
-  // QR-код на скачивание APK (виден только на компьютере)
+  // QR-код ведёт на эту же страницу: через камеру файл качается медленно,
+  // а в обычном браузере телефона — по кнопке за секунды
   try {
-    var qr = qrcode(0, 'M'); qr.addData(apkUrl); qr.make();
+    var qr = qrcode(0, 'M'); qr.addData('https://sapfirshow.kz/app/'); qr.make();
     $('qrBox').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
   } catch (e) { $('qr').hidden = true; }
 
