@@ -128,20 +128,6 @@
       }
     },
     {
-      "id": "niyara",
-      "name": "Нияра",
-      "photo": {
-        "src": "niyara.webp",
-        "full": "niyara-original.png",
-        "w": 1179,
-        "h": 2050
-      },
-      "focus": {
-        "x": 49,
-        "y": 35
-      }
-    },
-    {
       "id": "tamilla",
       "name": "Тамилла",
       "photo": {
@@ -162,6 +148,16 @@
       }
     },
     {
+      "id": "araylym",
+      "name": "Арайлым",
+      "photo": {
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
+      }
+    },
+    {
       "id": "sabrina",
       "name": "Сабрина",
       "photo": {
@@ -172,13 +168,17 @@
       }
     },
     {
-      "id": "araylym",
-      "name": "Арайлым",
+      "id": "niyara",
+      "name": "Нияра",
       "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
-        "h": 1536
+        "src": "niyara.webp",
+        "full": "niyara-original.png",
+        "w": 1179,
+        "h": 2050
+      },
+      "focus": {
+        "x": 49,
+        "y": 35
       }
     }
   ],
