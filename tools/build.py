@@ -196,7 +196,8 @@ def build(check=False):
         return pages
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
-    for name in os.listdir(ROOT):
+    os.makedirs(OUT)
+    for name in sorted(os.listdir(ROOT)):
         if name in SKIP or name in ('index.html', 'kk', 'ug'):
             continue
         src = os.path.join(ROOT, name)
