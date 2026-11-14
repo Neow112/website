@@ -104,6 +104,16 @@
       }
     },
     {
+      "id": "nigara",
+      "name": "Нигара",
+      "photo": {
+        "src": "nigara.webp",
+        "full": "nigara.jpg",
+        "w": 1000,
+        "h": 1333
+      }
+    },
+    {
       "id": "mira",
       "name": "Мира",
       "photo": {
@@ -118,13 +128,13 @@
       }
     },
     {
-      "id": "nigara",
-      "name": "Нигара",
+      "id": "araylym",
+      "name": "Арайлым",
       "photo": {
-        "src": "nigara.webp",
-        "full": "nigara.jpg",
-        "w": 1000,
-        "h": 1333
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
       }
     },
     {
@@ -134,16 +144,6 @@
         "src": "sabrina.webp",
         "full": "sabrina.jpg",
         "w": 1159,
-        "h": 1536
-      }
-    },
-    {
-      "id": "araylym",
-      "name": "Арайлым",
-      "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
         "h": 1536
       }
     },
@@ -159,7 +159,7 @@
     },
     {
       "id": "niyara",
-      "name": "Ниара",
+      "name": "Нияра",
       "photo": {
         "src": "niyara.webp",
         "full": "niyara-original.png",
