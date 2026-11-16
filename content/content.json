@@ -108,16 +108,6 @@
       }
     },
     {
-      "id": "nigara",
-      "name": "Нигара",
-      "photo": {
-        "src": "nigara.webp",
-        "full": "nigara.jpg",
-        "w": 1000,
-        "h": 1333
-      }
-    },
-    {
       "id": "mira",
       "name": "Мира",
       "photo": {
@@ -139,6 +129,16 @@
         "full": "sabrina.jpg",
         "w": 1159,
         "h": 1536
+      }
+    },
+    {
+      "id": "nigara",
+      "name": "Нигара",
+      "photo": {
+        "src": "nigara.webp",
+        "full": "nigara.jpg",
+        "w": 1000,
+        "h": 1333
       }
     },
     {
