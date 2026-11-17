@@ -108,6 +108,16 @@
       }
     },
     {
+      "id": "nigara",
+      "name": "Нигара",
+      "photo": {
+        "src": "nigara.webp",
+        "full": "nigara.jpg",
+        "w": 1000,
+        "h": 1333
+      }
+    },
+    {
       "id": "mira",
       "name": "Мира",
       "photo": {
@@ -117,8 +127,8 @@
         "h": 1333
       },
       "focus": {
-        "x": 49,
-        "y": 39
+        "x": 24,
+        "y": 72
       }
     },
     {
@@ -129,16 +139,10 @@
         "full": "sabrina.jpg",
         "w": 1159,
         "h": 1536
-      }
-    },
-    {
-      "id": "nigara",
-      "name": "Нигара",
-      "photo": {
-        "src": "nigara.webp",
-        "full": "nigara.jpg",
-        "w": 1000,
-        "h": 1333
+      },
+      "focus": {
+        "x": 45,
+        "y": 21
       }
     },
     {
@@ -159,6 +163,10 @@
         "full": "araylym.jpg",
         "w": 864,
         "h": 1536
+      },
+      "focus": {
+        "x": 0,
+        "y": 17
       }
     },
     {
