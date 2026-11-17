@@ -132,6 +132,20 @@
       }
     },
     {
+      "id": "araylym",
+      "name": "Арайлым",
+      "photo": {
+        "src": "araylym.webp",
+        "full": "araylym.jpg",
+        "w": 864,
+        "h": 1536
+      },
+      "focus": {
+        "x": 0,
+        "y": 17
+      }
+    },
+    {
       "id": "sabrina",
       "name": "Сабрина",
       "photo": {
@@ -156,22 +170,8 @@
       }
     },
     {
-      "id": "araylym",
-      "name": "Арайлым",
-      "photo": {
-        "src": "araylym.webp",
-        "full": "araylym.jpg",
-        "w": 864,
-        "h": 1536
-      },
-      "focus": {
-        "x": 0,
-        "y": 17
-      }
-    },
-    {
       "id": "niyara",
-      "name": "Нияра",
+      "name": "Ниара",
       "photo": {
         "src": "niyara.webp",
         "full": "niyara-original.png",
